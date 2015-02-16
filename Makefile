@@ -6,11 +6,11 @@
 #    By: npineau <npineau@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/01/23 12:57:00 by npineau           #+#    #+#              #
-#    Updated: 2015/02/16 16:08:32 by npineau          ###   ########.fr        #
+#    Updated: 2015/02/16 16:58:05 by npineau          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	:=	wolf3d
+NAME	:=	rtv1
 
 ### DIRECTORIES ###
 
@@ -33,6 +33,8 @@ PFT		:= $(DIRFT)/libft.a
 PMLX	:= $(DIRMLX)/libumlx.a
 
 ### COMPILATION VARIABLES ###
+
+CC		:=	gcc
 
 C_FLAG	:=	-Wall -Wextra -Werror
 O_FLAG	:=	-O3
