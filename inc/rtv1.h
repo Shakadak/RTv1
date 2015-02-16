@@ -6,7 +6,7 @@
 /*   By: npineau <npineau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/06 16:42:15 by npineau           #+#    #+#             */
-/*   Updated: 2015/02/16 16:57:21 by npineau          ###   ########.fr       */
+/*   Updated: 2015/02/16 17:31:40 by npineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ typedef enum	e_kind
 {
 	SPHERE,
 	PLANE,
+	CONE,
+	CYLINDER,
 	TOTAL
 }				t_kind;
 
@@ -29,6 +31,16 @@ typedef struct	s_plane
 {
 	int			cc;
 }				t_plane;
+
+typedef struct	s_cone
+{
+	int			cc;
+}				t_cone;
+
+typedef struct	s_cylinder
+{
+	int			cc;
+}				t_cylinder;
 
 typedef union	u_shape
 {
