@@ -6,7 +6,7 @@
 #    By: npineau <npineau@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/01/23 12:57:00 by npineau           #+#    #+#              #
-#    Updated: 2015/02/03 12:40:37 by npineau          ###   ########.fr        #
+#    Updated: 2015/02/16 16:08:32 by npineau          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,20 +20,12 @@ DIRINC	:=	inc
 DIRFT	:=	libft
 DIRMLX	:=	libumlx
 DIRMAIN	:=	$(DIRSRC)/main
-DIRINI	:=	$(DIRSRC)/init
-DIRPSX	:=	$(DIRSRC)/physics
-DIRRAY	:=	$(DIRSRC)/ray
-DIRRDR	:=	$(DIRSRC)/render
 
 ### FILES ###
 
 HEAD := $(DIRINC)/$(NAME).h
 
 include $(DIRMAIN)/sources.mk
-include $(DIRINI)/sources.mk
-include $(DIRPSX)/sources.mk
-include $(DIRRAY)/sources.mk
-include $(DIRRDR)/sources.mk
 
 POBJ	:=	$(addprefix $(DIROBJ)/, $(OBJ))
 
