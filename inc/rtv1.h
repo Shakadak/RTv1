@@ -6,7 +6,7 @@
 /*   By: npineau <npineau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/06 16:42:15 by npineau           #+#    #+#             */
-/*   Updated: 2015/02/16 17:31:40 by npineau          ###   ########.fr       */
+/*   Updated: 2015/02/16 19:22:07 by npineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ typedef union	u_shape
 {
 	t_sphere	sphere;
 	t_plane		plane;
+	t_cone		cone;
+	t_cylinder	cylinder;
 }				t_shape;
 
 typedef struct	s_object
