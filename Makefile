@@ -6,7 +6,7 @@
 #    By: npineau <npineau@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/01/23 12:57:00 by npineau           #+#    #+#              #
-#    Updated: 2015/02/16 16:58:05 by npineau          ###   ########.fr        #
+#    Updated: 2015/02/17 12:15:12 by npineau          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,13 +19,16 @@ DIROBJ	:=	obj
 DIRINC	:=	inc
 DIRFT	:=	libft
 DIRMLX	:=	libumlx
-DIRMAIN	:=	$(DIRSRC)/main
+
+DIRMAIN		:=	$(DIRSRC)/main
+DIRSHAPE	:=	$(DIRSRC)/shapes
 
 ### FILES ###
 
 HEAD := $(DIRINC)/$(NAME).h
 
 include $(DIRMAIN)/sources.mk
+include $(DIRSHAPE)/sources.mk
 
 POBJ	:=	$(addprefix $(DIROBJ)/, $(OBJ))
 
