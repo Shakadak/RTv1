@@ -51,9 +51,13 @@ typedef struct	s_object
 	t_shape		shape;
 }				t_object;
 
-
-t_object		new_sphere(t_coordinate const pos,
+t_object		new_sphere(
+		t_coordinate const pos,
 		double const radius,
 		t_color const color);
+t_coordinate	new_coordinate(
+		double const x,
+		double const y,
+		double const z);
 
 #endif
