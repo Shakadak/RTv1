@@ -1,4 +1,4 @@
-MAIN	:=	sphere.c \
+SHAPE	:=	sphere.c \
 			new_coordinate.c
 
 OBJ := $(OBJ) $(SHAPE:.c=.o)

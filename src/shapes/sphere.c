@@ -1,10 +1,12 @@
-t_shape	new_sphere(t_coordinate const pos, double const radius, t_color const color)
+#include "rtv1.h"
+
+t_object	new_sphere(t_coordinate const pos, double const radius, t_color const color)
 {
-	t_shape	sphere;
+	t_object	sphere;
 
 	sphere.kind = SPHERE;
 	sphere.shape.sphere.radius = radius;
-	sphere.coordinate = pos;
-	sphere.color = color;
+	sphere.pos = pos;
+	sphere.rgb = color;
 	return (sphere);
 }
