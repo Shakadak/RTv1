@@ -1,4 +1,5 @@
-SHAPE	:=	sphere.c \
+SHAPE	:=	new_sphere.c \
+			new_camera \
 			new_coordinate.c
 
 OBJ := $(OBJ) $(SHAPE:.c=.o)

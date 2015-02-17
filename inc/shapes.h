@@ -3,12 +3,20 @@
 
 typedef enum		e_kind
 {
+	CAMERA,
 	SPHERE,
 	PLANE,
 	CONE,
 	CYLINDER,
 	TOTAL
 }					t_kind;
+
+typedef struct		s_coordinate
+{
+	double			x;
+	double			y;
+	double			z;
+}					t_coordinate;
 
 typedef struct		s_sphere
 {
@@ -19,6 +27,11 @@ typedef struct		s_plane
 {
 	int				cc;
 }					t_plane;
+
+typedef struct		s_camera
+{
+	t_coordinate	direction;
+}					t_camera;
 
 typedef struct		s_cone
 {
@@ -32,18 +45,12 @@ typedef struct		s_cylinder
 
 typedef union		u_shape
 {
+	t_camera		camera;
 	t_sphere		sphere;
 	t_plane			plane;
 	t_cone			cone;
 	t_cylinder		cylinder;
 }					t_shape;
-
-typedef struct		s_coordinate
-{
-	double			x;
-	double			y;
-	double			z;
-}					t_coordinate;
 
 typedef struct		s_object
 {
@@ -61,5 +68,8 @@ t_coordinate		new_coordinate(
 		double const x,
 		double const y,
 		double const z);
+t_object			new_camera(
+		t_coordinate const pos,
+		t_coordinate const direction);
 
 #endif
