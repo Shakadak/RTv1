@@ -31,6 +31,7 @@ typedef struct		s_plane
 typedef struct		s_camera
 {
 	t_coordinate	direction;
+	t_coordinate	origin;
 }					t_camera;
 
 typedef struct		s_cone
