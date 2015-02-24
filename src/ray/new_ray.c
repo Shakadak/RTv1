@@ -1,6 +1,8 @@
 #include <math.h>
 #include "rtv1.h"
 
+t_vec vec_from_vtx(t_vtx const origin, t_vtx const destination);
+
 t_ray	new_ray(t_camera const camera,
 		t_pos const pos,
 		t_pos const dim)
@@ -14,5 +16,6 @@ t_ray	new_ray(t_camera const camera,
 	on_projection.y = 1 - 2 * on_projection.y;
 	on_projection.x *= tan(camera.fov / 2.0);
 	on_projection.z = -1;
+	ray.direction = vec_from_vtx(vtx_from_coordinates(0, 0, 0), on_projection);
 	return (ray);
 }

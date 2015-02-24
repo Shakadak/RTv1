@@ -18,6 +18,8 @@ typedef struct		s_vtx
 	double			z;
 }					t_vtx;
 
+typedef t_vtx		t_vec;
+
 typedef struct		s_sphere
 {
 	double			radius;
