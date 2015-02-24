@@ -6,7 +6,7 @@
 #    By: npineau <npineau@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/01/23 12:57:00 by npineau           #+#    #+#              #
-#    Updated: 2015/02/18 15:07:32 by npineau          ###   ########.fr        #
+#    Updated: 2015/02/24 18:29:48 by npineau          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,7 @@ DIRMLX	:=	libumlx
 DIRMAIN		:=	$(DIRSRC)/main
 DIRSHAPE	:=	$(DIRSRC)/shapes
 DIRRAY		:=	$(DIRSRC)/ray
+DIRUTIL		:=	$(DIRSRC)/util
 
 ### FILES ###
 
@@ -31,6 +32,7 @@ HEAD := $(DIRINC)/$(NAME).h
 include $(DIRMAIN)/sources.mk
 include $(DIRSHAPE)/sources.mk
 include $(DIRRAY)/sources.mk
+include $(DIRUTIL)/sources.mk
 
 POBJ	:=	$(addprefix $(DIROBJ)/, $(OBJ))
 
