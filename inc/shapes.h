@@ -11,12 +11,12 @@ typedef enum		e_kind
 	TOTAL
 }					t_kind;
 
-typedef struct		s_coordinate
+typedef struct		s_vtx
 {
 	double			x;
 	double			y;
 	double			z;
-}					t_coordinate;
+}					t_vtx;
 
 typedef struct		s_sphere
 {
@@ -30,8 +30,9 @@ typedef struct		s_plane
 
 typedef struct		s_camera
 {
-	t_coordinate	direction;
-	t_coordinate	origin;
+	double			fov;
+	t_vtx			direction;
+	t_vtx			origin;
 }					t_camera;
 
 typedef struct		s_cone
@@ -57,20 +58,20 @@ typedef struct		s_object
 {
 	t_kind			kind;
 	t_shape			shape;
-	t_coordinate	pos;
+	t_vtx			pos;
 	t_color			rgb;
 }					t_object;
 
 t_object			new_sphere(
-		t_coordinate const pos,
+		t_vtx const pos,
 		double const radius,
 		t_color const color);
-t_coordinate		new_coordinate(
+t_vtx				new_vtx(
 		double const x,
 		double const y,
 		double const z);
 t_object			new_camera(
-		t_coordinate const pos,
-		t_coordinate const direction);
+		t_vtx const pos,
+		t_vtx const direction);
 
 #endif

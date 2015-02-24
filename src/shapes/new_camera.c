@@ -1,6 +1,6 @@
 #include "rtv1.h"
 
-t_object	new_camera(t_coordinate const pos, t_coordinate const direction)
+t_object	new_camera(t_vtx const pos, t_vtx const direction)
 {
 	t_object	camera;
 

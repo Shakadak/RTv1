@@ -6,7 +6,7 @@
 /*   By: npineau <npineau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/06 16:42:15 by npineau           #+#    #+#             */
-/*   Updated: 2015/02/18 15:10:09 by npineau          ###   ########.fr       */
+/*   Updated: 2015/02/24 17:52:18 by npineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@
 
 typedef struct		s_ray
 {
-	t_coordinate	origin;
-	t_coordinate	direction;
+	t_vtx			origin;
+	t_vtx			direction;
 }					t_ray;
 
 #endif

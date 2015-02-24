@@ -1,8 +1,8 @@
 #include "rtv1.h"
 
-t_coordinate	new_coordinate(double const x, double const y, double const z)
+t_vtx	new_vtx(double const x, double const y, double const z)
 {
-	t_coordinate	pos;
+	t_vtx	pos;
 
 	pos.x = x;
 	pos.y = y;

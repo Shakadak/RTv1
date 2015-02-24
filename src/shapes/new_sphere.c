@@ -1,6 +1,6 @@
 #include "rtv1.h"
 
-t_object	new_sphere(t_coordinate const pos, double const radius, t_color const color)
+t_object	new_sphere(t_vtx const pos, double const radius, t_color const color)
 {
 	t_object	sphere;
 
