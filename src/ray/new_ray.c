@@ -1,8 +1,6 @@
 #include <math.h>
 #include "rtv1.h"
 
-t_vec vec_from_vtx(t_vtx const origin, t_vtx const destination);
-
 t_ray	new_ray(t_camera const camera,
 		t_pos const pos,
 		t_pos const dim)
