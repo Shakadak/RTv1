@@ -8,5 +8,6 @@ t_object	new_sphere(t_vtx const pos, double const radius, t_color const color)
 	sphere.shape.sphere.radius = radius;
 	sphere.pos = pos;
 	sphere.rgb = color;
+	sphere.intersec = intersec_sphere;
 	return (sphere);
 }

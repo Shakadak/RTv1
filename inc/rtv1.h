@@ -6,7 +6,7 @@
 /*   By: npineau <npineau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/06 16:42:15 by npineau           #+#    #+#             */
-/*   Updated: 2015/02/26 15:19:54 by npineau          ###   ########.fr       */
+/*   Updated: 2015/02/26 16:29:20 by npineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,5 @@
 # include "libumlx.h"
 # include "shapes.h"
 # include "util.h"
-
-typedef struct		s_ray
-{
-	t_vtx			pos;
-	t_vtx			dir;
-}					t_ray;
 
 #endif

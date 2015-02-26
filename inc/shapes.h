@@ -1,6 +1,8 @@
 #ifndef SHAPES_H
 # define SHAPES_H
 
+# include "rtv1.h"
+
 typedef enum		e_kind
 {
 	CAMERA,
@@ -56,12 +58,19 @@ typedef union		u_shape
 	t_cylinder		cylinder;
 }					t_shape;
 
+typedef struct		s_ray
+{
+	t_vtx			pos;
+	t_vtx			dir;
+}					t_ray;
+
 typedef struct		s_object
 {
 	t_kind			kind;
 	t_shape			shape;
 	t_vtx			pos;
 	t_color			rgb;
+	double			(*intersec)(struct s_object const self, t_ray const ray);
 }					t_object;
 
 t_object			new_sphere(
@@ -75,5 +84,9 @@ t_vtx				new_vtx(
 t_object			new_camera(
 		t_vtx const pos,
 		t_vtx const direction);
+double	intersec_sphere(t_object const self, t_ray const ray);
+t_ray	new_ray(t_camera const camera,
+		t_pos const pos,
+		t_pos const dim);
 
 #endif
