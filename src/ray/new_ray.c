@@ -5,7 +5,7 @@ t_ray	new_ray(t_camera const camera,
 		t_pos const pos,
 		t_pos const dim)
 {
-	t_ray			ray;
+	t_ray	ray;
 	t_vtx	on_projection;
 
 	on_projection.x = ((double)pos.x + 0.5) / (double)dim.x;
@@ -14,6 +14,6 @@ t_ray	new_ray(t_camera const camera,
 	on_projection.y = 1 - 2 * on_projection.y;
 	on_projection.x *= tan(camera.fov / 2.0);
 	on_projection.z = -1;
-	ray.direction = vec_from_vtx(vtx_from_coordinates(0, 0, 0), on_projection);
+	ray.dir = vec_from_vtx(vtx_from_coordinates(0, 0, 0), on_projection);
 	return (ray);
 }

@@ -1,3 +1,5 @@
+#include <math.h>
+
 double	solve_quadratic(double const a, double const b, double const c)
 {
 	double	delta;

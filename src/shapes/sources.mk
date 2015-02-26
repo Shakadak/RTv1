@@ -1,6 +1,7 @@
 SHAPE	:=	new_sphere.c \
 			new_camera.c \
-			new_coordinate.c
+			new_coordinate.c \
+			intersec_sphere.c
 
 OBJ := $(OBJ) $(SHAPE:.c=.o)
 
