@@ -6,7 +6,7 @@
 #    By: npineau <npineau@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/01/23 12:57:00 by npineau           #+#    #+#              #
-#    Updated: 2015/02/24 18:29:48 by npineau          ###   ########.fr        #
+#    Updated: 2015/02/28 13:57:18 by npineau          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,7 +53,8 @@ C_INC	:=	-I $(DIRINC) \
 
 L_FLAG	:=	-L $(DIRFT) -lft \
 			-L $(DIRMLX) -lumlx \
-			-L /usr/X11/lib -lmlx -lXext -lX11
+			-L /usr/X11/lib -lmlx -lXext -lX11 \
+			-lm
 
 COMPIL	= $(CC) -o $@ -c $< $(C_INC) $(C_FLAG) $(O_FLAG)
 LINK	= $(CC) -o $@ $^ $(L_FLAG)
