@@ -9,6 +9,7 @@ t_vec	vec_from_vtx(t_vtx const origin, t_vtx const destination);
 t_vec	vec_sub(t_vec const lh, t_vec const rh);
 t_vec	vec_add(t_vec const lh, t_vec const rh);
 double	vec_dot(t_vec const lh, t_vec const rh);
+t_vec	vec_cross(t_vec const lh, t_vec const rh);
 t_vec	vec_normalize(t_vec const vec);
 double	vec_magnitude(t_vec const vec);
 

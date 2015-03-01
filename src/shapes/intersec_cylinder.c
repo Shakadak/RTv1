@@ -5,11 +5,17 @@ double	intersec_cylinder(t_object const self, t_ray const ray)
 	double	a;
 	double	b;
 	double	c;
-	t_vec	line;
+	t_vec	VxAB;
+	t_vec	AOxAB;
 
-	line = vec_sub(ray.pos, self.pos);
-	a = vec_dot(ray.dir, ray.dir);
-	b = 2 * vec_dot(ray.dir, line);
-	c = vec_dot(line, line) - self.shape.sphere.radius * self.shape.sphere.radius;
+	VxAB = vec_cross(ray.dir, self.shape.cylinder.dir);
+	VxAB = vec_cross(
+			vec_from_vtx(self.origin, ray.origin),
+			self.shape.cylinder.dir);
+	a = vec_dot(VxAB, VxAB);
+	b = 2 * vec_dot(VxAB, AOxAB);
+	c = vec_dot(AOxAB, AOxAB)
+		- self.shape.cylinder.radius * self.shape.cylinder.radius
+		* vec_dot(self.shape.cylinder.dir, self.shape.cylinder.dir);
 	return (solve_quadratic(a, b, c));
 }
