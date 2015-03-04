@@ -2,10 +2,10 @@
 
 t_vtx	new_vtx(double const x, double const y, double const z)
 {
-	t_vtx	pos;
+	t_vtx	vtx;
 
-	pos.x = x;
-	pos.y = y;
-	pos.z = z;
-	return (pos);
+	vtx.x = x;
+	vtx.y = y;
+	vtx.z = z;
+	return (vtx);
 }

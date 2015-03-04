@@ -6,7 +6,7 @@
 /*   By: npineau <npineau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/06 16:43:08 by npineau           #+#    #+#             */
-/*   Updated: 2015/02/26 18:00:53 by npineau          ###   ########.fr       */
+/*   Updated: 2015/03/04 12:43:10 by npineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,10 @@ int	main(void)
 
 	dim = new_pos(100, 70, 0);
 	objects[0] = new_camera(new_vtx(0, 0, 0), new_vtx(0, 0, -1));
-	objects[1] = new_sphere(new_vtx(0, 0, -30), 5, new_color(0xFF, 0xFF, 0x88));
+	objects[1] = new_cylinder(new_vtx(0, 0, -30),
+			new_color(0xFF, 0xFF, 0x88),
+			new_vtx(1, 1, 1),
+			5);
 	y = 0;
 	while (y < dim.y)
 	{

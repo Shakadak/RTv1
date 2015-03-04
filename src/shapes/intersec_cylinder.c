@@ -9,9 +9,7 @@ double	intersec_cylinder(t_object const self, t_ray const ray)
 	t_vec	AOxAB;
 
 	VxAB = vec_cross(ray.dir, self.shape.cylinder.dir);
-	VxAB = vec_cross(
-			vec_from_vtx(self.origin, ray.origin),
-			self.shape.cylinder.dir);
+	VxAB = vec_cross(vec_from_vtx(self.pos, ray.pos), self.shape.cylinder.dir);
 	a = vec_dot(VxAB, VxAB);
 	b = 2 * vec_dot(VxAB, AOxAB);
 	c = vec_dot(AOxAB, AOxAB)

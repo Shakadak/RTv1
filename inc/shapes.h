@@ -46,7 +46,8 @@ typedef struct		s_cone
 
 typedef struct		s_cylinder
 {
-	int				cc;
+	double			radius;
+	t_vec			dir;
 }					t_cylinder;
 
 typedef union		u_shape
@@ -75,8 +76,12 @@ typedef struct		s_object
 
 t_object			new_sphere(
 		t_vtx const pos,
-		double const radius,
-		t_color const color);
+		t_color const color,
+		double const radius);
+t_object	new_cylinder(t_vtx const pos,
+		t_color const color,
+		t_vec const dir,
+		double radius);
 t_vtx				new_vtx(
 		double const x,
 		double const y,
@@ -85,6 +90,7 @@ t_object			new_camera(
 		t_vtx const pos,
 		t_vtx const direction);
 double	intersec_sphere(t_object const self, t_ray const ray);
+double	intersec_cylinder(t_object const self, t_ray const ray);
 t_ray	new_ray(t_camera const camera,
 		t_pos const pos,
 		t_pos const dim);
