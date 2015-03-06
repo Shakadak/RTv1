@@ -20,4 +20,5 @@ t_mtx	mtx_mult(t_mtx const lh, t_mtx const rh)
 		}
 		++i;
 	}
+	return (product);
 }
