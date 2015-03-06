@@ -20,7 +20,9 @@ t_mtx	mtx_identity(void)
 			{
 				id[i][j] = 0;
 			}
+			++j;
 		}
+		++i;
 	}
 	return [id];
 }
