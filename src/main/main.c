@@ -6,12 +6,11 @@
 /*   By: npineau <npineau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/06 16:43:08 by npineau           #+#    #+#             */
-/*   Updated: 2015/03/09 17:55:09 by npineau          ###   ########.fr       */
+/*   Updated: 2015/03/09 18:33:24 by npineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rtv1.h"
-#include <stdio.h>
 
 int	main(void)
 {
@@ -35,8 +34,6 @@ int	main(void)
 		while (x < dim.x)
 		{
 			ray = new_ray(camera, new_pos(x, y, 0), dim);
-			printf("x: %d, y: %d\n", x, y);
-	printf("ray.pos.x: %f, ray.pos.t: %f, ray.pos.z: %f\n", ray.pos.x, ray.pos.y, ray.pos.z);
 			ft_putnbr_fd(objects[1].intersec(transform_ray(ray, objects[1].pipe)), 2);
 			ft_putchar_fd('|', 2);
 			(void)ray;
