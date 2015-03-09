@@ -3,6 +3,8 @@
 
 # include "rtv1.h"
 
+typedef double	t_mtx[4][4];
+
 double	solve_quadratic(double const a, double const b, double const c);
 t_vtx	vtx_from_coordinates(double const x, double const y, double const z);
 t_vec	vec_from_vtx(t_vtx const origin, t_vtx const destination);
