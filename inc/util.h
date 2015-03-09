@@ -3,6 +3,8 @@
 
 # include "rtv1.h"
 
+#define SQR(x) ((x) * (x))
+
 typedef struct	s_mtx
 {
 	double	m[4][4];

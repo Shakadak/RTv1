@@ -6,7 +6,7 @@
 /*   By: npineau <npineau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/06 16:43:08 by npineau           #+#    #+#             */
-/*   Updated: 2015/03/04 12:43:10 by npineau          ###   ########.fr       */
+/*   Updated: 2015/03/09 15:42:50 by npineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	main(void)
 		while (x < dim.x)
 		{
 			ray = new_ray(objects[0].shape.camera, new_pos(x, y, 0), dim);
-			ft_putnbr_fd(objects[1].intersec(objects[1], ray), 2);
+			ft_putnbr_fd(objects[1].intersec(ray), 2);
 			ft_putchar_fd('|', 2);
 			(void)ray;
 			++x;
