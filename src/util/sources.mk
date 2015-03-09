@@ -15,7 +15,7 @@ UTIL	:=	mtx_determinant.c \
 			vec_magnitude.c \
 			vec_normalize.c \
 			vec_sub.c \
-			vtx_from_coordinates.c \
+			vtx_new.c \
 			vtx_homogenize.c \
 			vtx_transform.c
 
