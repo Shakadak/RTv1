@@ -44,10 +44,6 @@ t_object		new_cylinder(t_vtx const scale,
 		t_rot const rotate,
 		t_vec const translate,
 		t_color const color);
-t_vtx			new_vtx(
-		double const x,
-		double const y,
-		double const z);
 t_camera		new_camera(
 		t_vtx const pos,
 		t_vtx const direction);

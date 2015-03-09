@@ -47,7 +47,10 @@ double			vec_dot(t_vec const lh, t_vec const rh);
 t_vec			vec_cross(t_vec const lh, t_vec const rh);
 t_vec			vec_normalize(t_vec const vec);
 double			vec_magnitude(t_vec const vec);
-t_vtx			vtx_from_coordinates(double const x, double const y, double const z);
+t_vtx			vtx_new(double const x,
+		double const y,
+		double const z,
+		double const w);
 t_vtx			vtx_homogenize(t_vtx const vtx);
 t_vtx			vtx_transform(t_vtx const lh, t_mtx const rh);
 
