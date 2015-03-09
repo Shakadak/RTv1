@@ -1,12 +1,23 @@
-UTIL	:=	vtx_from_coordinates.c \
-			vec_from_vtx.c \
+UTIL	:=	mtx_determinant.c \
+			mtx_identity.c \
+			mtx_mult.c \
+			mtx_rotate.c \
+			mtx_scale.c \
+			mtx_translate.c \
+			mtx_transpose.c \
 			solve_quadratic.c \
-			vec_dot.c \
-			vec_cross.c \
-			vec_sub.c \
+			transform_pipeline.c \
 			vec_add.c \
+			vec_cross.c \
+			vec_dot.c \
+			vec_from_vtx.c \
+			vec_homogenize.c \
+			vec_magnitude.c \
 			vec_normalize.c \
-			vec_magnitude.c
+			vec_sub.c \
+			vtx_from_coordinates.c \
+			vtx_homogenize.c \
+			vtx_transform.c
 
 OBJ := $(OBJ) $(UTIL:.c=.o)
 
