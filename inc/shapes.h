@@ -30,10 +30,11 @@ typedef struct	s_object
 {
 	t_kind		kind;
 	t_color		rgb;
-	t_pipe		mtx;
+	t_pipe		pipe;
 	double		(*intersec)(t_ray const ray);
 }				t_object;
 
+t_ray	transform_ray(t_ray const ray, t_pipe const pipe);
 t_object		new_sphere(
 		t_vtx const scale,
 		t_rot const rotate,
@@ -47,7 +48,7 @@ t_vtx			new_vtx(
 		double const x,
 		double const y,
 		double const z);
-t_object		new_camera(
+t_camera		new_camera(
 		t_vtx const pos,
 		t_vtx const direction);
 double			intersec_sphere(t_ray const ray);
