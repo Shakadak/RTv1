@@ -14,15 +14,15 @@ t_mtx	mtx_identity(void)
 		{
 			if (i == j)
 			{
-				id[i][j] = 1;
+				id.m[i][j] = 1;
 			}
 			else
 			{
-				id[i][j] = 0;
+				id.m[i][j] = 0;
 			}
 			++j;
 		}
 		++i;
 	}
-	return [id];
+	return (id);
 }

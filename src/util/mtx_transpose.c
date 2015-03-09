@@ -12,9 +12,10 @@ t_mtx	mtx_transpose(t_mtx const mtx)
 		j = 0;
 		while (j < 4)
 		{
-			transposed[j][i] = mtx[i][j];
+			transposed.m[j][i] = mtx.m[i][j];
 			++j;
 		}
 		++i;
 	}
+	return (transposed);
 }

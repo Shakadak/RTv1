@@ -18,6 +18,7 @@ typedef struct		s_vtx
 	double			x;
 	double			y;
 	double			z;
+	double			w;
 }					t_vtx;
 
 typedef t_vtx		t_vec;

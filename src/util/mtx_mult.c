@@ -12,10 +12,10 @@ t_mtx	mtx_mult(t_mtx const lh, t_mtx const rh)
 		j = 0;
 		while (j < 0)
 		{
-			product[i][j] = lh[i][0] * rh[0][j]
-				+ lh[i][1] * rh[1][j]
-				+ lh[i][2] * rh[2][j]
-				+ lh[i][3] * rh[3][j];
+			product.m[i][j] = lh.m[i][0] * rh.m[0][j]
+				+ lh.m[i][1] * rh.m[1][j]
+				+ lh.m[i][2] * rh.m[2][j]
+				+ lh.m[i][3] * rh.m[3][j];
 			++j;
 		}
 		++i;
