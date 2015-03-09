@@ -10,7 +10,7 @@ t_mtx	mtx_mult(t_mtx const lh, t_mtx const rh)
 	while (i < 4)
 	{
 		j = 0;
-		while (j < 0)
+		while (j < 4)
 		{
 			product.m[i][j] = lh.m[i][0] * rh.m[0][j]
 				+ lh.m[i][1] * rh.m[1][j]
