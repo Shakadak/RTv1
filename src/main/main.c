@@ -6,11 +6,12 @@
 /*   By: npineau <npineau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/06 16:43:08 by npineau           #+#    #+#             */
-/*   Updated: 2015/03/09 17:06:33 by npineau          ###   ########.fr       */
+/*   Updated: 2015/03/09 17:55:09 by npineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rtv1.h"
+#include <stdio.h>
 
 int	main(void)
 {
@@ -22,10 +23,10 @@ int	main(void)
 	t_camera	camera;
 
 	dim = new_pos(100, 70, 0);
-	camera = new_camera(new_vtx(0, 0, 0), new_vtx(0, 0, -1));
-	objects[1] = new_sphere(new_vtx(5, 5, 5),
-			new_vtx(0, 0, 0),
-			new_vtx(0, 0, -30),
+	camera = new_camera(vtx_new(0, 0, 0, 1), vtx_new(0, 0, -1, 1));
+	objects[1] = new_sphere(vtx_new(5, 5, 5, 1),
+			vtx_new(0, 0, 0, 1),
+			vtx_new(0, 0, -30, 1),
 			new_color(0xFF, 0xFF, 0x88));
 	y = 0;
 	while (y < dim.y)
@@ -34,6 +35,8 @@ int	main(void)
 		while (x < dim.x)
 		{
 			ray = new_ray(camera, new_pos(x, y, 0), dim);
+			printf("x: %d, y: %d\n", x, y);
+	printf("ray.pos.x: %f, ray.pos.t: %f, ray.pos.z: %f\n", ray.pos.x, ray.pos.y, ray.pos.z);
 			ft_putnbr_fd(objects[1].intersec(transform_ray(ray, objects[1].pipe)), 2);
 			ft_putchar_fd('|', 2);
 			(void)ray;

@@ -11,7 +11,7 @@ t_pipe	transform_pipeline(t_vtx const scale,
 	pipe.transform = mtx_mult(mtx_rotateY(rotate.y), pipe.transform);
 	pipe.transform = mtx_mult(mtx_rotateZ(rotate.z), pipe.transform);
 	pipe.transform = mtx_mult(mtx_translate(translate), pipe.transform);
-	pipe.inverse = mtx_translate(vec_sub(new_vtx(0, 0, 0), translate));
+	pipe.inverse = mtx_translate(vtx_homogenize(vec_sub(vtx_new(0, 0, 0, 1), translate)));
 	pipe.inverse = mtx_mult(pipe.inverse, mtx_rotateZ(-rotate.z));
 	pipe.inverse = mtx_mult(pipe.inverse, mtx_rotateY(-rotate.y));
 	pipe.inverse = mtx_mult(pipe.inverse, mtx_rotateX(-rotate.x));

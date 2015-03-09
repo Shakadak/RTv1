@@ -1,5 +1,6 @@
 #include "rtv1.h"
 
+#include <stdio.h>////////////
 t_ray	transform_ray(t_ray const ray, t_pipe const pipe)
 {
 	t_ray	transformed;
