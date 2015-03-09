@@ -1,13 +1,12 @@
 #include "rtv1.h"
 #include <math.h>
 
-t_object	new_camera(t_vtx const pos, t_vtx const direction)
+t_camera	new_camera(t_vtx const pos, t_vtx const dir)
 {
-	t_object	camera;
+	t_camera	camera;
 
-	camera.kind = CAMERA;
-	camera.shape.camera.direction = direction;
-	camera.shape.camera.fov = 90 * M_PI / 180;
+	camera.dir = direction;
+	camera.fov = 90 * M_PI / 180;
 	camera.pos = pos;
 	return (camera);
 }

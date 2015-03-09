@@ -3,7 +3,7 @@
 
 # include "rtv1.h"
 
-typedef enum		e_kind
+typedef enum	e_kind
 {
 	CAMERA,
 	SPHERE,
@@ -11,89 +11,48 @@ typedef enum		e_kind
 	CONE,
 	CYLINDER,
 	TOTAL
-}					t_kind;
+}				t_kind;
 
-typedef struct		s_vtx
+typedef struct	s_camera
 {
-	double			x;
-	double			y;
-	double			z;
-	double			w;
-}					t_vtx;
+	double		fov;
+	t_vtx		dir;
+	t_vtx		pos;
+}				t_camera;
 
-typedef t_vtx		t_vec;
-typedef t_vec		t_rot;
-
-typedef struct		s_sphere
+typedef struct	s_ray
 {
-	double			radius;
-}					t_sphere;
+	t_vtx		pos;
+	t_vtx		dir;
+}				t_ray;
 
-typedef struct		s_plane
+typedef struct	s_object
 {
-	int				cc;
-}					t_plane;
+	t_kind		kind;
+	t_color		rgb;
+	t_pipe		mtx;
+	double		(*intersec)(t_ray const ray);
+}				t_object;
 
-typedef struct		s_camera
-{
-	double			fov;
-	t_vtx			direction;
-	t_vtx			origin;
-}					t_camera;
-
-typedef struct		s_cone
-{
-	int				cc;
-}					t_cone;
-
-typedef struct		s_cylinder
-{
-	double			radius;
-	t_vec			dir;
-}					t_cylinder;
-
-typedef union		u_shape
-{
-	t_camera		camera;
-	t_sphere		sphere;
-	t_plane			plane;
-	t_cone			cone;
-	t_cylinder		cylinder;
-}					t_shape;
-
-typedef struct		s_ray
-{
-	t_vtx			pos;
-	t_vtx			dir;
-}					t_ray;
-
-typedef struct		s_object
-{
-	t_kind			kind;
-	t_shape			shape;
-	t_vtx			pos;
-	t_color			rgb;
-	double			(*intersec)(t_ray const ray);
-}					t_object;
-
-t_object			new_sphere(
-		t_vtx const pos,
-		t_color const color,
-		double const radius);
-t_object	new_cylinder(t_vtx const pos,
-		t_color const color,
-		t_vec const dir,
-		double radius);
-t_vtx				new_vtx(
+t_object		new_sphere(
+		t_vtx const scale,
+		t_rot const rotate,
+		t_vec const translate,
+		t_color const color);
+t_object		new_cylinder(t_vtx const scale,
+		t_rot const rotate,
+		t_vec const translate,
+		t_color const color);
+t_vtx			new_vtx(
 		double const x,
 		double const y,
 		double const z);
-t_object			new_camera(
+t_object		new_camera(
 		t_vtx const pos,
 		t_vtx const direction);
-double	intersec_sphere(t_ray const ray);
-double	intersec_cylinder(t_ray const ray);
-t_ray	new_ray(t_camera const camera,
+double			intersec_sphere(t_ray const ray);
+double			intersec_cylinder(t_ray const ray);
+t_ray			new_ray(t_camera const camera,
 		t_pos const pos,
 		t_pos const dim);
 

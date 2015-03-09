@@ -5,6 +5,17 @@
 
 #define SQR(x) ((x) * (x))
 
+typedef struct		s_vtx
+{
+	double			x;
+	double			y;
+	double			z;
+	double			w;
+}					t_vtx;
+
+typedef t_vtx		t_vec;
+typedef t_vec		t_rot;
+
 typedef struct	s_mtx
 {
 	double	m[4][4];
