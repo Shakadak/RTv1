@@ -1,7 +1,6 @@
 #include <math.h>
 #include "rtv1.h"
 
-
 t_mtx	mtx_rotateX(double const angle)
 {
 	t_mtx	rotation;
@@ -13,6 +12,7 @@ t_mtx	mtx_rotateX(double const angle)
 	rotation[2][2] = cos(angle);
 	return (rotation);
 }
+
 t_mtx	mtx_rotateY(double const angle)
 {
 	t_mtx	rotation;
@@ -24,6 +24,7 @@ t_mtx	mtx_rotateY(double const angle)
 	rotation[2][2] = cos(angle);
 	return (rotation);
 }
+
 t_mtx	mtx_rotateZ(double const angle)
 {
 	t_mtx	rotation;

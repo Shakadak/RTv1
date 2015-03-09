@@ -21,6 +21,7 @@ typedef struct		s_vtx
 }					t_vtx;
 
 typedef t_vtx		t_vec;
+typedef t_vec		t_rot;
 
 typedef struct		s_sphere
 {
