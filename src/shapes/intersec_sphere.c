@@ -7,7 +7,7 @@ double	intersec_sphere(t_ray const ray)
 	double	b;
 	double	c;
 
-//	printf("ray.dir.x %f ray.dir.y %f ray.dir.z %f\n",ray.dir.x, ray.dir.y, ray.dir.z);
+	printf("ray.dir.x %f ray.dir.y %f ray.dir.z %f\n",ray.dir.x, ray.dir.y, ray.dir.z);
 	a = vec_dot(ray.dir, ray.dir);
 	b = 2 * vec_dot(ray.dir, ray.pos);
 	c = vec_dot(ray.pos, ray.pos) - 1;

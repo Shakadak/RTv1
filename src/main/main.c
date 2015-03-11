@@ -1,18 +1,6 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: npineau <npineau@student.42.fr>            +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/02/06 16:43:08 by npineau           #+#    #+#             */
-/*   Updated: 2015/03/11 14:52:06 by npineau          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "rtv1.h"
 
-int	main(void)
+int	test(t_env *env)
 {
 	t_object	objects[2];
 	t_ray		ray;
@@ -20,12 +8,14 @@ int	main(void)
 	int			y;
 	t_pos		dim;
 	t_camera	camera;
+	int			dist;
 
-	dim = new_pos(120, 100, 0);
+			ft_putendl("yol");
+	dim = new_pos(1366, 768, 0);
 	camera = new_camera(vtx_new(0, 0, 0, 1), vtx_new(0, 0, -1, 1));
-	objects[1] = new_sphere(vtx_new(5, 5, 5, 1),
+	objects[1] = new_sphere(vtx_new(10, 10, 10, 1),
 			vtx_new(0, 0, 0, 1),
-			vtx_new(0, 0, -15, 1),
+			vtx_new(5, -1.1, -5, 1),
 			new_color(0xFF, 0xFF, 0x88));
 	y = 0;
 	while (y < dim.y)
@@ -34,13 +24,25 @@ int	main(void)
 		while (x < dim.x)
 		{
 			ray = new_ray(camera, new_pos(x, y, 0), dim);
-			ft_putnbr_fd(objects[1].intersec(transform_ray(ray, objects[1].pipe)), 2);
-			ft_putchar_fd('|', 2);
-			(void)ray;
+			dist = objects[1].intersec(transform_ray(ray, objects[1].pipe));
+			put_pixel_to_image(env->img, new_pixel(new_pos(x, y, 0), new_color(0, 0, (dist > 0 ? 200 : 0))));
 			++x;
 		}
-		ft_putchar_fd('\n', 2);
 		++y;
 	}
+	apply_image(env->win, env->img, new_pos(0, 0, 0));
+	return (0);
+}
+
+int	main(void)
+{
+	t_env	env;
+
+	env.mlx = new_mlx();
+	env.win = new_window(env.mlx, 1366, 768, "caca");
+	env.img = new_image(env.mlx, 1366, 768);
+	mlx_loop_hook(env.mlx, test, (void *)&env);
+			ft_putendl("yol");
+	mlx_loop(env.mlx);
 	return (0);
 }
