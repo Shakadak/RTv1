@@ -34,7 +34,7 @@ typedef struct	s_object
 	double		(*intersec)(t_ray const ray);
 }				t_object;
 
-t_ray	transform_ray(t_ray const ray, t_pipe const pipe);
+t_ray			ray_transform(t_ray const ray, t_pipe const pipe);
 t_object		new_sphere(
 		t_vtx const scale,
 		t_rot const rotate,

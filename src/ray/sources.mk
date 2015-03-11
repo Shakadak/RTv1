@@ -1,5 +1,5 @@
 RAY	:=	new_ray.c \
-		transform_ray.c
+		ray_transform.c
 
 OBJ := $(OBJ) $(RAY:.c=.o)
 

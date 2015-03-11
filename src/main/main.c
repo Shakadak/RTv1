@@ -24,7 +24,7 @@ int	test(t_env *env)
 		while (x < dim.x)
 		{
 			ray = new_ray(camera, new_pos(x, y, 0), dim);
-			dist = objects[1].intersec(transform_ray(ray, objects[1].pipe));
+			dist = objects[1].intersec(ray_transform(ray, objects[1].pipe));
 			put_pixel_to_image(env->img, new_pixel(new_pos(x, y, 0), new_color(0, 0, (dist > 0 ? 200 : 0))));
 			++x;
 		}
