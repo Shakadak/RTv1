@@ -1,6 +1,6 @@
 #include "rtv1.h"
 
-t_vtx	mtx_vec_mult(t_vrc const lh, t_mtx const rh)
+t_vec	mtx_vec_mult(t_vec const lh, t_mtx const rh)
 {
 	t_vec	new;
 

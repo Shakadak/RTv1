@@ -5,6 +5,8 @@ UTIL	:=	mtx_determinant.c \
 			mtx_scale.c \
 			mtx_translate.c \
 			mtx_transpose.c \
+			mtx_vec_mult.c \
+			mtx_vtx_mult.c \
 			solve_quadratic.c \
 			transform_pipeline.c \
 			vec_add.c \
@@ -16,8 +18,7 @@ UTIL	:=	mtx_determinant.c \
 			vec_normalize.c \
 			vec_sub.c \
 			vtx_new.c \
-			vtx_homogenize.c \
-			vtx_transform.c
+			vtx_homogenize.c
 
 OBJ := $(OBJ) $(UTIL:.c=.o)
 

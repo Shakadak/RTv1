@@ -37,6 +37,8 @@ t_mtx			mtx_rotateZ(double const angle);
 t_mtx			mtx_scale(double const x, double const y, double const z);
 t_mtx			mtx_translate(t_vec const vec);
 t_mtx			mtx_transpose(t_mtx const mtx);
+t_vec			mtx_vec_mult(t_vec const lh, t_mtx const rh);
+t_vtx			mtx_vtx_mult(t_vtx const lh, t_mtx const rh);
 double			solve_quadratic(double const a, double const b, double const c);
 t_pipe			transform_pipeline(t_vtx const scale,
 		t_rot const rotate,
@@ -53,6 +55,5 @@ t_vtx			vtx_new(double const x,
 		double const z,
 		double const w);
 t_vtx			vtx_homogenize(t_vtx const vtx);
-t_vtx			vtx_transform(t_vtx const lh, t_mtx const rh);
 
 #endif
