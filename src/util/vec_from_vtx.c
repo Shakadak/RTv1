@@ -8,5 +8,7 @@ t_vec	vec_from_vtx(t_vtx const origin, t_vtx const destination)
 	vec.y = destination.y * origin.w - origin.y * destination.w;
 	vec.z = destination.z * origin.w - origin.z * destination.w;
 	vec.w = destination.w * origin.w;
+	vec = vtx_homogenize(vec);
+	vec.w = 0;
 	return (vec);
 }
