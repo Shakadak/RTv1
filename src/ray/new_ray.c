@@ -17,7 +17,7 @@ t_ray	new_ray(t_camera const camera,
 	on_projection.z = -1;
 	on_projection.w = 1;
 	ray.dir = vec_from_vtx(vtx_new(0, 0, 0, 1), on_projection);
-	ray.pos = vec_add(camera.pos, ray.dir);
 	ray.dir = vec_normalize(ray.dir);
+	ray.pos = camera.pos;
 	return (ray);
 }
