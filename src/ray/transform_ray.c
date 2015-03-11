@@ -14,6 +14,6 @@ t_ray	transform_ray(t_ray const ray, t_pipe const pipe)
 */	transformed.pos = vtx_transform(ray.pos, pipe.inverse);
 //:w
 //printf("transformed transformed.pos.x: %f, transformed.pos.t: %f, transformed.pos.z: %f, transformed.pos.w: %f\n", transformed.pos.x, transformed.pos.y, transformed.pos.z, transformed.pos.w);
-	transformed.dir = vtx_transform(ray.dir, pipe.inverse);
+	transformed.dir = vtx_transform(ray.dir, pipe.idir);
 	return (transformed);
 }

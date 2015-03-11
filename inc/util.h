@@ -25,6 +25,7 @@ typedef struct	s_pipe
 {
 	t_mtx	transform;
 	t_mtx	inverse;
+	t_mtx	idir;
 }				t_pipe;
 
 double			mtx_determinant(t_mtx const mtx);

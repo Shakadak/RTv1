@@ -1,4 +1,5 @@
 #include <math.h>
+#include <stdio.h>
 #include "rtv1.h"
 
 t_ray	new_ray(t_camera const camera,
@@ -18,5 +19,6 @@ t_ray	new_ray(t_camera const camera,
 	ray.dir = vec_from_vtx(vtx_new(0, 0, 0, 1), on_projection);
 	ray.pos = vec_add(vtx_new(0, 0, 0, 1), ray.dir);
 	ray.dir = vec_normalize(ray.dir);
+//	printf("\n\nray.dir.x %f ray.dir.y %f ray.dir.z %f\n",ray.dir.x, ray.dir.y, ray.dir.z);
 	return (ray);
 }
