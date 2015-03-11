@@ -15,7 +15,7 @@ int	test(t_env *env)
 	camera = new_camera(vtx_new(0, 1, 0, 1), vtx_new(0, 0, -1, 1));
 	objects[1] = new_sphere(vtx_new(10, 10, 10, 1),
 			vtx_new(0, 0, 0, 1),
-			vtx_new(0, 0, -5, 1),
+			vtx_new(0, 0, -105, 1),
 			new_color(0xFF, 0xFF, 0x88));
 	y = 0;
 	while (y < dim.y)
