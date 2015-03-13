@@ -49,12 +49,18 @@ t_object		new_sphere(
 		t_rot const rotate,
 		t_vec const translate,
 		t_color const color);
+t_object		new_plane(
+		t_vtx const scale,
+		t_rot const rotate,
+		t_vec const translate,
+		t_color const color);
 t_camera		new_camera(
 		t_vtx const pos,
 		t_vtx const direction);
 double			intersec_cone(t_ray const ray);
 double			intersec_cylinder(t_ray const ray);
 double			intersec_sphere(t_ray const ray);
+double			intersec_plane(t_ray const ray);
 t_ray			new_ray(t_camera const camera,
 		t_pos const pos,
 		t_pos const dim);

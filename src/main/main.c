@@ -1,3 +1,4 @@
+#include <math.h>
 #include "rtv1.h"
 
 int	test(t_env *env)
@@ -13,8 +14,8 @@ int	test(t_env *env)
 			ft_putendl("yol");
 	dim = new_pos(1366, 768, 0);
 	camera = new_camera(vtx_new(0, 1, 0, 1), vtx_new(0, 0, -1, 1));
-	objects[1] = new_sphere(vtx_new(10, 10, 10, 1),
-			vtx_new(0, 0, 0, 1),
+	objects[1] = new_cone(vtx_new(5, 1, 1, 1),
+			vtx_new(45 * M_PI / 180, 45 * M_PI / 180, 00 * M_PI / 180, 1),
 			vtx_new(0, 0, -105, 1),
 			new_color(0xFF, 0xFF, 0x88));
 	y = 0;
@@ -39,7 +40,7 @@ int	main(void)
 	t_env	env;
 
 	env.mlx = new_mlx();
-	env.win = new_window(env.mlx, 1366, 768, "caca");
+	env.win = new_window(env.mlx, 1366, 768, "holy carp");
 	env.img = new_image(env.mlx, 1366, 768);
 	mlx_loop_hook(env.mlx, test, (void *)&env);
 			ft_putendl("yol");
