@@ -9,12 +9,12 @@ int	test(t_env *env)
 	int			dist;
 
 	y = 0;
-	while (y < env->y)
+	while (y < env->img.dim.y)
 	{
 		x = 0;
-		while (x < env->x)
+		while (x < env->img.dim.x)
 		{
-			ray = new_ray(env->camera, new_pos(x, y, 0), dim);
+			ray = new_ray(env->camera, new_pos(x, y, 0), env->img.dim);
 			dist = env->objects[1].intersec(ray_transform(ray, env->objects[1].pipe));
 			put_pixel_to_image(env->img, new_pixel(new_pos(x, y, 0), new_color(0, 0, (dist > 0 ? 200 : 0))));
 			++x;
@@ -38,7 +38,7 @@ int	main(void)
 	env.win = new_window(env.mlx, 1366, 768, "holy carp");
 	env.img = new_image(env.mlx, 1366, 768);
 	mlx_loop_hook(env.mlx, test, (void *)&env);
-			ft_putendl("yol");
+	mlx_key_hook(env.win.win, key_press, NULL);
 	mlx_loop(env.mlx);
 	return (0);
 }

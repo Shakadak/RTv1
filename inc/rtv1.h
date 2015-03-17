@@ -21,8 +21,11 @@
 typedef struct		s_env
 {
 	void			*mlx;
+	t_object		objects[2];
+	t_camera		camera;
 	t_win			win;
 	t_img			img;
 }					t_env;
 
+int					key_press(int key);
 #endif

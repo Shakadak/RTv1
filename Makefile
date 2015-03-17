@@ -49,11 +49,13 @@ O_FLAG	:=	-O3
 C_INC	:=	-I $(DIRINC) \
 			-I $(DIRFT)/$(DIRINC) \
 			-I $(DIRMLX)/$(DIRINC) \
+			-I minilibx \
 			-I /usr/x11/include
 
-L_FLAG	:=	-L $(DIRFT) -lft \
-			-L $(DIRMLX) -lumlx \
-			-L /usr/X11/lib -lmlx -lXext -lX11 \
+L_FLAG	:=	-L $(DIRMLX) -lumlx \
+			-L $(DIRFT) -lft \
+			-L minilibx -lmlx \
+			-L /usr/X11/lib -lXext -lX11 \
 			-lm
 
 COMPIL	= $(CC) -o $@ -c $< $(C_INC) $(C_FLAG) $(O_FLAG)
