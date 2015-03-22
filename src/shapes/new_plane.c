@@ -7,6 +7,7 @@ t_object	new_plane(t_vtx const scale,
 {
 	t_object	plane;
 
+	plane.defined = !0;
 	plane.kind = PLANE;
 	plane.rgb = color;
 	plane.intersec = intersec_plane;

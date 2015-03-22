@@ -1,27 +1,27 @@
 #include <math.h>
+#include <stdio.h>///////////////
 #include "rtv1.h"
 
 int	test(t_env *env)
 {
-	t_ray		ray;
 	int			x;
-	int			y;
-	int			dist;
+	static int			y = 0;
+	t_color		rgb;
 
-	y = 0;
+//	y = 0;
 	while (y < env->img.dim.y)
 	{
 		x = 0;
 		while (x < env->img.dim.x)
 		{
-			ray = new_ray(env->camera, new_pos(x, y, 0), env->img.dim);
-			dist = env->objects[1].intersec(ray_transform(ray, env->objects[1].pipe));
-			put_pixel_to_image(env->img, new_pixel(new_pos(x, y, 0), new_color(0, 0, (dist > 0 ? 200 : 0))));
+			rgb = ray_cast(new_pos(x, y, 0), env->camera, env->objects, env->lights);
+			put_pixel_to_image(env->img, new_pixel(new_pos(x, y, 0), rgb));
 			++x;
 		}
 		++y;
 	}
-	apply_image(env->win, env->img, new_pos(0, 0, 0));
+	update_screen(env);
+//	apply_image(env->win, env->img, new_pos(0, 0, 0));
 	return (0);
 }
 
@@ -29,16 +29,18 @@ int	main(void)
 {
 	t_env	env;
 
-	env.camera = new_camera(vtx_new(0, 1, 0, 1), vtx_new(0, 0, -1, 1));
-	env.objects[1] = new_cone(vtx_new(5, 1, 1, 1),
+	env.camera = new_camera(vtx_new(0, 1, 0, 1), vtx_new(0, 0, -1, 1), new_pos(1366, 768, 0));
+	ft_bzero(env.objects, sizeof(env.objects));
+	env.objects[0] = new_cone(vtx_new(5, 1, 1, 1),
 			vtx_new(45 * M_PI / 180, 45 * M_PI / 180, 00 * M_PI / 180, 1),
 			vtx_new(0, 0, -105, 1),
-			new_color(0xFF, 0xFF, 0x88));
+			new_color(0xFF, 0x88, 0x88, 0x00));
 	env.mlx = new_mlx();
-	env.win = new_window(env.mlx, 1366, 768, "holy carp");
-	env.img = new_image(env.mlx, 1366, 768);
+	env.win = new_window(env.mlx, env.camera.screen.x, env.camera.screen.y, "holy carp");
+	env.img = new_image(env.mlx, env.camera.screen.x, env.camera.screen.y);
 	mlx_loop_hook(env.mlx, test, (void *)&env);
 	mlx_key_hook(env.win.win, key_press, NULL);
+	mlx_expose_hook(env.win.win, update_screen, &env);
 	mlx_loop(env.mlx);
 	return (0);
 }

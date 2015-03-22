@@ -7,6 +7,7 @@ t_object	new_cylinder(t_vtx const scale,
 {
 	t_object	cylinder;
 
+	cylinder.defined = !0;
 	cylinder.kind = CYLINDER;
 	cylinder.rgb = color;
 	cylinder.intersec = intersec_cylinder;

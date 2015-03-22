@@ -6,7 +6,7 @@
 #    By: npineau <npineau@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/01/23 12:57:00 by npineau           #+#    #+#              #
-#    Updated: 2015/03/22 10:30:33 by npineau          ###   ########.fr        #
+#    Updated: 2015/03/22 15:53:39 by npineau          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,7 +44,7 @@ PMLX	:= $(DIRMLX)/libumlx.a
 CC		:=	gcc
 
 C_FLAG	:=	-Wall -Wextra -Werror
-O_FLAG	:=	-O3
+O_FLAG	:=	-O0
 
 C_INC	:=	-I $(DIRINC) \
 			-I $(DIRFT)/$(DIRINC) \

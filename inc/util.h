@@ -23,9 +23,9 @@ typedef struct	s_mtx
 
 typedef struct	s_pipe
 {
-	t_mtx	transform;
-	t_mtx	inverse;
-	t_mtx	idir;
+	t_mtx	t_pos;
+	t_mtx	i_pos;
+	t_mtx	i_dir;
 }				t_pipe;
 
 double			mtx_determinant(t_mtx const mtx);

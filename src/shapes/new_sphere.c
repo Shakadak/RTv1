@@ -8,6 +8,7 @@ t_object			new_sphere(
 {
 	t_object	sphere;
 
+	sphere.defined = !0;
 	sphere.kind = SPHERE;
 	sphere.rgb = color;
 	sphere.intersec = intersec_sphere;

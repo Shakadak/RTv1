@@ -7,6 +7,7 @@ t_object	new_cone(t_vtx const scale,
 {
 	t_object	cone;
 
+	cone.defined = !0;
 	cone.kind = CONE;
 	cone.rgb = color;
 	cone.intersec = intersec_cone;
