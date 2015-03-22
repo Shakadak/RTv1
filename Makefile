@@ -6,7 +6,7 @@
 #    By: npineau <npineau@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/01/23 12:57:00 by npineau           #+#    #+#              #
-#    Updated: 2015/02/28 13:57:18 by npineau          ###   ########.fr        #
+#    Updated: 2015/03/22 10:30:33 by npineau          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,8 +54,8 @@ C_INC	:=	-I $(DIRINC) \
 
 L_FLAG	:=	-L $(DIRMLX) -lumlx \
 			-L $(DIRFT) -lft \
-			-L minilibx -lmlx \
-			-L /usr/X11/lib -lXext -lX11 \
+			-lmlx \
+			-framework OpenGL -framework AppKit \
 			-lm
 
 COMPIL	= $(CC) -o $@ -c $< $(C_INC) $(C_FLAG) $(O_FLAG)
