@@ -22,7 +22,6 @@ int	test(t_env *env)
 	}
 	update_screen(env);
 	mlx_do_sync(env->mlx);
-//	apply_image(env->win, env->img, new_pos(0, 0, 0));
 	return (0);
 }
 
