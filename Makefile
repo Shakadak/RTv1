@@ -6,7 +6,7 @@
 #    By: npineau <npineau@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/01/23 12:57:00 by npineau           #+#    #+#              #
-#    Updated: 2015/03/22 15:53:39 by npineau          ###   ########.fr        #
+#    Updated: 2015/03/23 15:53:34 by npineau          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,7 +49,6 @@ O_FLAG	:=	-O0
 C_INC	:=	-I $(DIRINC) \
 			-I $(DIRFT)/$(DIRINC) \
 			-I $(DIRMLX)/$(DIRINC) \
-			-I minilibx \
 			-I /usr/x11/include
 
 L_FLAG	:=	-L $(DIRMLX) -lumlx \
