@@ -6,7 +6,7 @@
 #    By: npineau <npineau@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/01/23 12:57:00 by npineau           #+#    #+#              #
-#    Updated: 2015/04/04 16:33:00 by npineau          ###   ########.fr        #
+#    Updated: 2015/04/04 18:30:52 by npineau          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,7 +54,8 @@ C_INC	:=	-I $(DIRINC) \
 			-I $(DIRMTX)/$(DIRINC) \
 			-I /usr/x11/include
 
-L_FLAG	:=	-L $(DIRMLX) -lumlx \
+L_FLAG	:=	-L $(DIRMTX) -lmtx \
+			-L $(DIRMLX) -lumlx \
 			-L $(DIRFT) -lft \
 			-lmlx \
 			-framework OpenGL -framework AppKit \
