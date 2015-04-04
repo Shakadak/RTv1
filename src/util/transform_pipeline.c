@@ -12,7 +12,7 @@ t_pipe	transform_pipeline(t_mtx const scale,
 	pipe.t_pos = mtx_product(mtx_rotateY(rotate.mtx[1]), pipe.t_pos);
 	pipe.t_pos = mtx_product(mtx_rotateZ(rotate.mtx[2]), pipe.t_pos);
 	pipe.t_pos = mtx_product(mtx_translate(translate), pipe.t_pos);
-	pipe.i_pos = mtx_translate(vtx_homogenize(mtx_sub(vtx_new(0, 0, 0, 1), translate)));
+	pipe.i_pos = mtx_translate(translate);
 	pipe.i_dir = mtx_rotateZ(-rotate.mtx[2]);
 	pipe.i_dir = mtx_product(pipe.i_dir, mtx_rotateY(-rotate.mtx[1]));
 	pipe.i_dir = mtx_product(pipe.i_dir, mtx_rotateX(-rotate.mtx[0]));

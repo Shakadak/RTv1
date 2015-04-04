@@ -7,8 +7,7 @@ UTIL	:=	mtx_rotate.c \
 			vec_magnitude.c \
 			vec_new.c \
 			vec_normalize.c \
-			vtx_new.c \
-			vtx_homogenize.c
+			vtx_new.c
 
 OBJ := $(OBJ) $(UTIL:.c=.o)
 
