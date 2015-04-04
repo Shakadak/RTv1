@@ -23,7 +23,7 @@ t_color	ray_cast(t_pos const pos,
 	while (objects->defined)
 	{
 		t_ray = ray_transform(ray, objects->pipe);
-		t_distance = objects->intersec(t_ray);
+		t_distance = intersec_quadric(*objects, t_ray);
 		if (t_distance > 0 && t_distance < distance)
 		{
 			distance = t_distance;

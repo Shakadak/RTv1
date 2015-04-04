@@ -1,12 +1,12 @@
 #include "rtv1.h"
 
-t_mtx	mtx_translate(t_vec const vec)
+t_mtx	mtx_translate(t_mtx const vec)
 {
 	t_mtx	translation;
 
-	translation = mtx_identity();
-	translation.m[0][3] = vec.x;
-	translation.m[1][3] = vec.y;
-	translation.m[2][3] = vec.z;
+	translation = mtx_identity(4);
+	translation.mtx[3 * 4 + 0] = vec.mtx[0];
+	translation.mtx[3 * 4 + 1] = vec.mtx[1];
+	translation.mtx[3 * 4 + 2] = vec.mtx[2];
 	return (translation);
 }

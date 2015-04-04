@@ -1,6 +1,6 @@
 #include "rtv1.h"
 
-double			intersec_quadric(t_object const object, t_ray const ray)
+double	intersec_quadric(t_object const object, t_ray const ray)
 {
 	double	a;
 	double	b;
@@ -8,11 +8,11 @@ double			intersec_quadric(t_object const object, t_ray const ray)
 	t_mtx	Qdir;
 	t_mtx	Qpos;
 
-	Qdir = mtx_mult(object.mtx, ray.dir);
-	Qpos = mtx_mult(object.mtx, ray.pos);
+	Qdir = mtx_product(object.mtx, ray.dir);
+	Qpos = mtx_product(object.mtx, ray.pos);
 	a = vec_dot(ray.dir, Qdir);
 	b = 2 * vec_dot(ray.dir, Qpos);
-	c = vec_dot(pos, Qpos);
+	c = vec_dot(ray.pos, Qpos);
 	mtx_free(Qdir);
 	mtx_free(Qpos);
 	return (solve_quadratic(a, b, c));

@@ -1,7 +1,7 @@
 #include <math.h>
 #include "rtv1.h"
 
-double	vec_magnitude(t_vec const vec)
+double	vec_magnitude(t_mtx const vec)
 {
-	return (sqrt(vec.x * vec.x + vec.y * vec.y + vec.z * vec.z));
+	return (sqrt(SQR(vec.mtx[0]) + SQR(vec.mtx[1]) + SQR(vec.mtx[2])));
 }

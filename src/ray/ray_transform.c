@@ -11,9 +11,9 @@ t_ray	ray_transform(t_ray const ray, t_pipe const pipe)
 			pipe.inverse.m[1][0], pipe.inverse.m[1][1], pipe.inverse.m[1][2], pipe.inverse.m[1][3],
 			pipe.inverse.m[2][0], pipe.inverse.m[2][1], pipe.inverse.m[2][2], pipe.inverse.m[2][3],
 			pipe.inverse.m[3][0], pipe.inverse.m[3][1], pipe.inverse.m[3][2], pipe.inverse.m[3][3]);
-*/	transformed.pos = mtx_vtx_mult(ray.pos, pipe.i_pos);
+*/	transformed.pos = mtx_product(pipe.i_pos, ray.pos);
 //:w
 //printf("transformed transformed.pos.x: %f, transformed.pos.t: %f, transformed.pos.z: %f, transformed.pos.w: %f\n", transformed.pos.x, transformed.pos.y, transformed.pos.z, transformed.pos.w);
-	transformed.dir = mtx_vec_mult(ray.dir, pipe.i_dir);
+	transformed.dir = mtx_product(pipe.i_dir, ray.dir);
 	return (transformed);
 }

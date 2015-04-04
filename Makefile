@@ -6,7 +6,7 @@
 #    By: npineau <npineau@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/01/23 12:57:00 by npineau           #+#    #+#              #
-#    Updated: 2015/03/23 15:53:34 by npineau          ###   ########.fr        #
+#    Updated: 2015/04/04 16:33:00 by npineau          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ DIROBJ	:=	obj
 DIRINC	:=	inc
 DIRFT	:=	libft
 DIRMLX	:=	libumlx
+DIRMTX	:=	libmtx
 
 DIRMAIN		:=	$(DIRSRC)/main
 DIRSHAPE	:=	$(DIRSRC)/shapes
@@ -38,6 +39,7 @@ POBJ	:=	$(addprefix $(DIROBJ)/, $(OBJ))
 
 PFT		:= $(DIRFT)/libft.a
 PMLX	:= $(DIRMLX)/libumlx.a
+PMTX	:= $(DIRMTX)/libmtx.a
 
 ### COMPILATION VARIABLES ###
 
@@ -49,6 +51,7 @@ O_FLAG	:=	-O0
 C_INC	:=	-I $(DIRINC) \
 			-I $(DIRFT)/$(DIRINC) \
 			-I $(DIRMLX)/$(DIRINC) \
+			-I $(DIRMTX)/$(DIRINC) \
 			-I /usr/x11/include
 
 L_FLAG	:=	-L $(DIRMLX) -lumlx \
@@ -65,7 +68,7 @@ LINK	= $(CC) -o $@ $^ $(L_FLAG)
 
 .PHONY: all clean fclean re
 
-all: $(PFT) $(PMLX) $(NAME)
+all: $(PFT) $(PMLX) $(PMTX) $(NAME)
 
 $(POBJ): |$(DIROBJ)
 
@@ -82,6 +85,9 @@ $(PFT):
 
 $(PMLX):
 	make -C $(DIRMLX)
+
+$(PMTX):
+	make -C $(DIRMTX)
 
 ### MISC ###
 

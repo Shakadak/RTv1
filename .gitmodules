@@ -4,3 +4,6 @@
 [submodule "libumlx"]
 	path = libumlx
 	url = https://github.com/Shakadak/libumlx.git
+[submodule "libmtx"]
+	path = libmtx
+	url = https://github.com/Shakadak/libmtx.git

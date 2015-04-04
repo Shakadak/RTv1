@@ -6,7 +6,7 @@
 /*   By: npineau <npineau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/06 16:42:15 by npineau           #+#    #+#             */
-/*   Updated: 2015/03/22 16:21:31 by npineau          ###   ########.fr       */
+/*   Updated: 2015/04/04 16:17:48 by npineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "libft.h"
 # include "libumlx.h"
+# include "libmtx.h"
 # include "util.h"
 # include "shapes.h"
 
