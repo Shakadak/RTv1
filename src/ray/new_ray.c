@@ -1,5 +1,4 @@
 #include <math.h>
-#include <stdio.h>/////////////
 #include "rtv1.h"
 
 t_ray	new_ray(t_camera const camera,

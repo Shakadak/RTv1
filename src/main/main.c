@@ -1,14 +1,12 @@
 #include <math.h>
-#include <stdio.h>///////////////
 #include "rtv1.h"
 
 int	test(t_env *env)
 {
 	int			x;
-	static int			y = 0;
+	static int	y = 0;
 	t_color		rgb;
 
-//	y = 0;
 	while (y < env->img.dim.y)
 	{
 		x = 0;
