@@ -11,6 +11,6 @@ t_object	new_plane(t_mtx const scale,
 	plane.rgb = color;
 	plane.pipe = transform_pipeline(scale, rotate, translate);
 	plane.quadric = mtx_new(4, 4);
-	plane.quadric.mtx[0 * 4 + 0] = 1;
+	plane.quadric.mtx[2 * 4 + 2] = 1;
 	return (plane);
 }
