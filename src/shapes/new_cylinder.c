@@ -10,5 +10,9 @@ t_object	new_cylinder(t_mtx const scale,
 	cylinder.defined = !0;
 	cylinder.rgb = color;
 	cylinder.pipe = transform_pipeline(scale, rotate, translate);
+	cylinder.quadric = mtx_new(4, 4);
+	cylinder.quadric.mtx[0 * 4 + 0] = 1;
+	cylinder.quadric.mtx[2 * 4 + 2] = 1;
+	cylinder.quadric.mtx[3 * 4 + 3] = -1;
 	return (cylinder);
 }

@@ -11,5 +11,10 @@ t_object			new_sphere(
 	sphere.defined = !0;
 	sphere.rgb = color;
 	sphere.pipe = transform_pipeline(scale, rotate, translate);
+	sphere.quadric = mtx_new(4, 4);
+	sphere.quadric.mtx[0 * 4 + 0] = 1;
+	sphere.quadric.mtx[1 * 4 + 1] = 1;
+	sphere.quadric.mtx[2 * 4 + 2] = 1;
+	sphere.quadric.mtx[3 * 4 + 3] = -1;
 	return (sphere);
 }

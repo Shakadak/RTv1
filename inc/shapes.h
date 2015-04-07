@@ -22,7 +22,7 @@ typedef t_ray	t_light;
 typedef struct	s_object
 {
 	int			defined;
-	t_mtx		mtx;
+	t_mtx		quadric;
 	t_color		rgb;
 	t_pipe		pipe;
 }				t_object;
