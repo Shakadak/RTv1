@@ -17,9 +17,9 @@ int	test(t_env *env)
 			++x;
 		}
 		++y;
+		update_screen(env);
+		mlx_do_sync(env->mlx);
 	}
-	update_screen(env);
-	mlx_do_sync(env->mlx);
 	return (0);
 }
 
