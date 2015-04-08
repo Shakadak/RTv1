@@ -5,7 +5,6 @@ t_ray	new_ray(t_camera const camera,
 		t_pos const pos)
 {
 	t_ray	ray;
-	t_mtx	tmp;
 	double	x;
 	double	y;
 	double	z;
@@ -16,9 +15,7 @@ t_ray	new_ray(t_camera const camera,
 	y = 1 - 2 * y;
 	x *= tan(camera.fov / 2.0);
 	z = -1;
-	tmp = vec_new(x, y, z);
-	ray.dir = vec_normalize(tmp);
-	mtx_free(tmp);
+	ray.dir = vec_normalize(vec_new(x, y, z));
 	ray.pos = camera.pos;
 	return (ray);
 }
