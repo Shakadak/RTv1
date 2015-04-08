@@ -3,7 +3,8 @@
 
 # include "rtv1.h"
 
-#define SQR(x) ((x) * (x))
+# define SQR(x) ((x) * (x))
+# define EPSILON 0.00000001
 
 typedef struct	s_pipe
 {
@@ -18,7 +19,6 @@ t_mtx			mtx_rotateY(double const angle);
 t_mtx			mtx_rotateZ(double const angle);
 t_mtx			mtx_scale(double const x, double const y, double const z);
 t_mtx			mtx_translate(t_mtx const vec);
-t_mtx			mtx_transpose(t_mtx const mtx);
 double			solve_quadratic(double const a, double const b, double const c);
 t_pipe			transform_pipeline(t_mtx const scale,
 		t_mtx const rotate,
