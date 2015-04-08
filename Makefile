@@ -6,7 +6,7 @@
 #    By: npineau <npineau@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/01/23 12:57:00 by npineau           #+#    #+#              #
-#    Updated: 2015/04/04 18:30:52 by npineau          ###   ########.fr        #
+#    Updated: 2015/04/08 19:38:34 by npineau          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,7 +46,7 @@ PMTX	:= $(DIRMTX)/libmtx.a
 CC		:=	gcc
 
 C_FLAG	:=	-Wall -Wextra -Werror
-O_FLAG	:=	-O0
+O_FLAG	:=	-O3
 
 C_INC	:=	-I $(DIRINC) \
 			-I $(DIRFT)/$(DIRINC) \
