@@ -17,7 +17,11 @@ typedef struct	s_ray
 	t_mtx		dir;
 }				t_ray;
 
-typedef t_ray	t_light;
+typedef s_light	s_light
+{
+	int			defined;
+	_mtx		pos;
+}				t_light;
 
 typedef struct	s_object
 {
@@ -52,10 +56,16 @@ t_camera		new_camera(
 		t_pos const screen);
 t_ray			ray_new(t_camera const camera,
 		t_pos const pos);
-t_color	ray_cast(t_pos const pos,
+t_color			ray_cast(t_pos const pos,
 		t_camera const camera,
 		t_object const * objects,
 		t_light const * lights);
+t_ray			ray_normal(t_object const obj, t_ray const ray, double const dist);
+t_color			ray_shade(t_object const obj,
+		t_ray const ray,
+		double const dist,
+		t_object const *objects,
+		t_light const *light);
 double			intersec_quadric(t_object const object, t_ray const ray);
 t_ray			ray_transform(t_ray const ray, t_pipe const pipe);
 

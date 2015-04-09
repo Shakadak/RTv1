@@ -28,5 +28,5 @@ t_color	ray_cast(t_pos const pos,
 		}
 		++objects;
 	}
-	return (nearest.rgb);
+	return (ray_shade(nearest, ray, distance, objects, lights));
 }
