@@ -16,7 +16,7 @@ t_color	ray_cast(t_pos const pos,
 		ft_fatal("Objects or lights uninitialized", 0);
 	distance = DBL_MAX;
 	ft_bzero(&nearest, sizeof(nearest));
-	ray = new_ray(camera, pos);
+	ray = ray_new(camera, pos);
 	while (objects->defined)
 	{
 		t_ray = ray_transform(ray, objects->pipe);

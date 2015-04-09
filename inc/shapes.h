@@ -50,7 +50,7 @@ t_camera		new_camera(
 		t_mtx const pos,
 		t_mtx const direction,
 		t_pos const screen);
-t_ray			new_ray(t_camera const camera,
+t_ray			ray_new(t_camera const camera,
 		t_pos const pos);
 t_color	ray_cast(t_pos const pos,
 		t_camera const camera,

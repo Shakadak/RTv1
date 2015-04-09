@@ -12,7 +12,7 @@ typedef struct	s_pipe
 	t_mtx	rotateX;
 	t_mtx	rotateY;
 	t_mtx	rotateZ;
-	t_mtx	rotate
+	t_mtx	rotate;
 	t_mtx	translate;
 	t_mtx	i_scale;
 	t_mtx	i_rotateX;
