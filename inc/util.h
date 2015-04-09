@@ -8,7 +8,20 @@
 
 typedef struct	s_pipe
 {
+	t_mtx	scale;
+	t_mtx	rotateX;
+	t_mtx	rotateY;
+	t_mtx	rotateZ;
+	t_mtx	rotate
+	t_mtx	translate;
+	t_mtx	i_scale;
+	t_mtx	i_rotateX;
+	t_mtx	i_rotateY;
+	t_mtx	i_rotateZ;
+	t_mtx	i_rotate;
+	t_mtx	i_translate;
 	t_mtx	t_pos;
+	t_mtx	t_normal;
 	t_mtx	i_pos;
 	t_mtx	i_dir;
 }				t_pipe;

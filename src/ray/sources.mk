@@ -1,5 +1,6 @@
-RAY	:=	new_ray.c \
-		ray_cast.c \
+RAY	:=	ray_cast.c \
+		ray_new.c \
+		ray_normal.c \
 		ray_transform.c
 
 OBJ := $(OBJ) $(RAY:.c=.o)

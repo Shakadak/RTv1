@@ -1,7 +1,7 @@
 #include <math.h>
 #include "rtv1.h"
 
-t_ray	new_ray(t_camera const camera,
+t_ray	ray_new(t_camera const camera,
 		t_pos const pos)
 {
 	t_ray	ray;
