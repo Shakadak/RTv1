@@ -27,10 +27,10 @@ int	main(void)
 {
 	t_env	env;
 
+	ft_bzero(&env, sizeof(env));
 	env.camera = new_camera(vtx_new(0, 1, 0, 1), vtx_new(0, 0, -1, 1), new_pos(1366, 768, 0));
-	ft_bzero(env.objects, sizeof(env.objects));
-	env.objects[0] = new_cone(vtx_new(1, 1, 0.5, 1),
-			vtx_new(45 * M_PI / 180, 45 * M_PI / 180, 00 * M_PI / 180, 1),
+	env.objects[0] = new_cone(vtx_new(1, 1, 1.0, 1),
+			vtx_new(90 * M_PI / 180, 00 * M_PI / 180, 00 * M_PI / 180, 1),
 			vtx_new(0, 0, -105, 1),
 			new_color(0xFF, 0x88, 0x88, 0x00));
 	env.objects[1] = new_sphere(vtx_new(25, 25, 25, 1),
