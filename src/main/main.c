@@ -53,6 +53,7 @@ int	main(void)
 			vtx_new(00 * M_PI / 180, 00 * M_PI / 180, 00 * M_PI / 180, 1),
 			vtx_new(-200, 0, -105, 1),
 			new_color(0xFF, 0x00, 0x00, 0x00));
+	env.lights[0] = new_light(vtx_new(0, 0, 0, 1));
 	env.mlx = new_mlx();
 	env.win = new_window(env.mlx, env.camera.screen.x, env.camera.screen.y, "holy carp");
 	env.img = new_image(env.mlx, env.camera.screen.x, env.camera.screen.y);

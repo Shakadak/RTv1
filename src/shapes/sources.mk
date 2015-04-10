@@ -1,6 +1,7 @@
 SHAPE	:=	new_sphere.c \
 			new_cone.c \
 			new_cylinder.c \
+			new_light.c \
 			new_plane.c \
 			new_camera.c \
 			intersec_quadric.c

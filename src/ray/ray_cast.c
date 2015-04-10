@@ -3,8 +3,8 @@
 
 t_color	ray_cast(t_pos const pos,
 		t_camera const camera,
-		t_object const * objects,
-		t_light const * lights)
+		t_object *objects,
+		t_light const *lights)
 {
 	t_ray		ray;
 	t_ray		t_ray;
