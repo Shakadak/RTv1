@@ -7,7 +7,7 @@ int	test(t_env *env)
 	static int	y = 0;
 	t_color		rgb;
 
-	while (y < env->img.dim.y)
+	if (y < env->img.dim.y)
 	{
 		x = 0;
 		while (x < env->img.dim.x)
@@ -28,23 +28,23 @@ int	main(void)
 	t_env	env;
 
 	ft_bzero(&env, sizeof(env));
-	env.camera = new_camera(vtx_new(0, 1, 0, 1), vtx_new(0, 0, -1, 1), new_pos(1366, 768, 0));
+	env.camera = new_camera(vtx_new(0, 1, 0, 1), vtx_new(0, 0, -1, 1), new_pos(1350, 750, 0));/*
 	env.objects[0] = new_cone(vtx_new(1, 1, 1.0, 1),
 			vtx_new(90 * M_PI / 180, 00 * M_PI / 180, 00 * M_PI / 180, 1),
 			vtx_new(0, 0, -105, 1),
-			new_color(0xFF, 0x88, 0x88, 0x00));
+			new_color(0xFF, 0x88, 0x88, 0x00));*/
 	env.objects[1] = new_sphere(vtx_new(25, 25, 25, 1),
 			vtx_new(0 * M_PI / 180, 0 * M_PI / 180, 00 * M_PI / 180, 1),
-			vtx_new(0, 0, -105, 1),
+			vtx_new(0, 0, -075, 1),
 			new_color(0xFF, 0xFF, 0x00, 0x00));
 	env.objects[2] = new_sphere(vtx_new(25, 25, 25, 1),
 			vtx_new(0 * M_PI / 180, 0 * M_PI / 180, 00 * M_PI / 180, 1),
-			vtx_new(-15, 0, -105, 1),
+			vtx_new(-15, 0, -075, 1),
 			new_color(0xFF, 0xFF, 0x00, 0x00));
-	env.objects[3] = new_sphere(vtx_new(25, 25, 25, 1),
+	env.objects[0] = new_sphere(vtx_new(25, 25, 25, 1),
 			vtx_new(0 * M_PI / 180, 0 * M_PI / 180, 00 * M_PI / 180, 1),
-			vtx_new(15, 0, -105, 1),
-			new_color(0xFF, 0xFF, 0x00, 0x00));
+			vtx_new(15, 0, -075, 1),
+			new_color(0xFF, 0xFF, 0x00, 0x00));/*
 	env.objects[4] = new_cylinder(vtx_new(5, 6, 1, 1),
 			vtx_new(90 * M_PI / 180, 0 * M_PI / 180, 00 * M_PI / 180, 1),
 			vtx_new(15, 0, -84, 1),
@@ -52,8 +52,8 @@ int	main(void)
 	env.objects[5] = new_plane(vtx_new(25, 25, 25, 1),
 			vtx_new(00 * M_PI / 180, 00 * M_PI / 180, 00 * M_PI / 180, 1),
 			vtx_new(-200, 0, -105, 1),
-			new_color(0xFF, 0x00, 0x00, 0x00));
-	env.lights[0] = new_light(vtx_new(0, 0, 0, 1));
+			new_color(0xFF, 0x00, 0x00, 0x00));*/
+	env.lights[0] = new_light(vtx_new(0, 1, 0, 1));
 	env.mlx = new_mlx();
 	env.win = new_window(env.mlx, env.camera.screen.x, env.camera.screen.y, "holy carp");
 	env.img = new_image(env.mlx, env.camera.screen.x, env.camera.screen.y);

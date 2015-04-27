@@ -1,46 +1,60 @@
 #include "rtv1.h"
 #include "stdio.h"
 
-t_color	ray_shade(t_object const obj,
+static int	obstructed(t_object const *olist, t_ray const ray)
+{
+	double		d;
+
+	while (olist->defined)
+	{
+		d = intersec_quadric(*olist, ray_transform(ray, olist->pipe));
+		printf("d = %f, ray.magnitude = %f\n", d, vec_magnitude(ray.dir));
+		if (0 + EPSILON < d || d < vec_magnitude(ray.dir) - EPSILON)
+			return (1);
+		++olist;
+	}
+	return (0);
+}
+
+t_color	ray_shade(t_object obj,
 		t_ray const ray,
 		double const dist,
-		t_object *objects,
+		t_object const *olist,
 		t_light const *lights)
 {
 	t_ray		normal;
 	t_ray		l_ray;
-	t_object	*t_obj;
-	double		d;
 	double		dot;
 
 	normal = ray_normal(obj, ray, dist);
 	while (lights->defined)
 	{
 		l_ray.dir = mtx_sub(lights->pos, normal.pos);
-		printf("normal\t[%f, %f, %f, %f]\nlight\t[%f, %f, %f, %f]\n", normal.pos.mtx[0], normal.pos.mtx[1], normal.pos.mtx[2], normal.pos.mtx[3], l_ray.dir.mtx[0], l_ray.dir.mtx[1], l_ray.dir.mtx[2], l_ray.dir.mtx[3]);
-		dot = vec_dot(normal.dir, l_ray.dir) / (vec_magnitude(normal.dir) * vec_magnitude(l_ray.dir));
-		printf("%f, dis is sum num\n", dot);
-		if (dot >= 1 || dot < 0)
+		dot = vec_dot(normal.dir, vec_normalize(l_ray.dir))/* / (vec_magnitude(normal.dir) * vec_magnitude(l_ray.dir))*/;
+/*		printf("normal.dir [%f,%f,%f] : light.dir [%f,%f,%f]\n", normal.dir.mtx[0],
+				normal.dir.mtx[1],
+				normal.dir.mtx[2],
+				l_ray.dir.mtx[0],
+				l_ray.dir.mtx[1],
+				l_ray.dir.mtx[2]);*/
+		if (dot >= 1 + EPSILON || dot <= 0 - EPSILON)
 		{
-			ft_putstr_fd("out of bound ?\n", 2);
+			ft_putendl_fd("antidot", 2);
 			++lights;
+			obj.rgb.rgb[0] /= 9;
+			obj.rgb.rgb[1] /= 9;
+			obj.rgb.rgb[2] /= 9;
+			obj.rgb.rgb[3] /= 9;
 			continue;
 		}
-		t_obj = objects;
 		l_ray.pos = normal.pos;
-			ft_putstr_fd("ongoibg;\n", 2);
-			printf("%d t_obj->defined\n", t_obj->defined);
-		while (t_obj->defined)
+		if (obstructed(olist, l_ray))
 		{
-			ft_putstr_fd("t_obj ongoibg;\n", 2);
-			d = intersec_quadric(*t_obj, l_ray);
-			if (0 - EPSILON < d|| d < 1 + EPSILON)
-			{
-				ft_putstr_fd("shadow t_obj;\n", 2);
-				break;
-			}
-			ft_putstr_fd("++t_obj;\n", 2);
-			++t_obj;
+			ft_putendl_fd("obstructed", 2);
+			obj.rgb.rgb[0] /= 2;
+			obj.rgb.rgb[1] /= 2;
+			obj.rgb.rgb[2] /= 2;
+			obj.rgb.rgb[3] /= 2;
 		}
 		++lights;
 	}
