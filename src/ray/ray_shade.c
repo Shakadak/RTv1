@@ -37,7 +37,7 @@ t_color	ray_shade(t_object obj,
 				l_ray.pos.mtx[2]);
 		l_ray.dir = mtx_sub(lights->pos, normal.pos);
 		dot = vec_dot(normal.dir, vec_normalize(l_ray.dir))/* / (vec_magnitude(normal.dir) * vec_magnitude(l_ray.dir))*/;
-		printf("normal.dir [%f,%f,%f] : light.dir [%f,%f,%f]\n", normal.dir.mtx[0],
+		printf("normal.dir [%f,%.19f,%f] : light.dir [%f,%f,%f]\n", normal.dir.mtx[0],
 				normal.dir.mtx[1],
 				normal.dir.mtx[2],
 				l_ray.dir.mtx[0],
