@@ -23,5 +23,7 @@ t_ray	ray_normal(t_object const obj, t_ray const ray, double const dist)
 	normal.dir = mtx_product(obj.pipe.t_normal, normal.dir);
 	normal.dir = vec_normalize(normal.dir);
 	normal.pos = vtx_homogenize(normal.pos);
+	if (vec_dot(normal.dir, ray.dir) > 0)
+		normal.dir = mtx_scalar_mult(-1, normal.dir);
 	return (normal);
 }
