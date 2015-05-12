@@ -6,7 +6,7 @@
 #    By: npineau <npineau@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/01/23 12:57:00 by npineau           #+#    #+#              #
-#    Updated: 2015/05/11 16:54:32 by npineau          ###   ########.fr        #
+#    Updated: 2015/05/12 15:54:44 by npineau          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -99,6 +99,6 @@ fclean: clean
 	rm -f $(NAME)
 
 run: all
-	./$(NAME)&
+	./$(NAME)
 
 re: fclean all
