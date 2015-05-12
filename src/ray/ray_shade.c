@@ -43,9 +43,9 @@ t_color	ray_shade(t_object obj,
 				l_ray.dir.mtx[0],
 				l_ray.dir.mtx[1],
 				l_ray.dir.mtx[2]);
+			printf("dot = %f\n", dot);
 		if (!(dot <= 1 + EPSILON && dot >= 0 - EPSILON))
 		{
-			printf("dot = %f\n", dot);
 			ft_putendl_fd("antidot", 2);
 			++lights;
 			obj.rgb.rgb[0] /= 9;
@@ -62,9 +62,9 @@ t_color	ray_shade(t_object obj,
 		if (obstructed(olist, l_ray))
 		{
 			ft_putendl_fd("obstructed", 2);
-			obj.rgb.rgb[0] = 0xff;
-			obj.rgb.rgb[1] = 0xff;
-			obj.rgb.rgb[2] = 0xff;
+			obj.rgb.rgb[0] /= 2;
+			obj.rgb.rgb[1] /= 2;
+			obj.rgb.rgb[2] /= 2;
 		}
 		++lights;
 	}
