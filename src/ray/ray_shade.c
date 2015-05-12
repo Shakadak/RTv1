@@ -8,8 +8,8 @@ static int	obstructed(t_object const *olist, t_ray const ray)
 	while (olist->defined)
 	{
 		d = intersec_quadric(*olist, ray_transform(ray, olist->pipe));
-		printf("d = %f, ray.magnitude = %f\n", d, vec_magnitude(ray.dir));
-		if (0 + EPSILON < d && d < vec_magnitude(ray.dir) - EPSILON)
+		printf("d = %.19f, ray.magnitude = %f\n", d, vec_magnitude(ray.dir));
+		if (0.0 + EPSILON < d && d < vec_magnitude(ray.dir) - EPSILON)
 			return (1);
 		++olist;
 	}
@@ -32,11 +32,11 @@ t_color	ray_shade(t_object obj,
 		printf("normal.pos [%f,%f,%f] : light.pos [%f,%f,%f]\n", normal.pos.mtx[0],
 				normal.pos.mtx[1],
 				normal.pos.mtx[2],
-				l_ray.pos.mtx[0],
-				l_ray.pos.mtx[1],
-				l_ray.pos.mtx[2]);
+				lights->pos.mtx[0],
+				lights->pos.mtx[1],
+				lights->pos.mtx[2]);
 		l_ray.dir = mtx_sub(lights->pos, normal.pos);
-		dot = vec_dot(normal.dir, vec_normalize(l_ray.dir))/* / (vec_magnitude(normal.dir) * vec_magnitude(l_ray.dir))*/;
+		dot = vec_dot(normal.dir, vec_normalize(l_ray.dir));
 		printf("normal.dir [%f,%.19f,%f] : light.dir [%f,%f,%f]\n", normal.dir.mtx[0],
 				normal.dir.mtx[1],
 				normal.dir.mtx[2],
@@ -62,10 +62,9 @@ t_color	ray_shade(t_object obj,
 		if (obstructed(olist, l_ray))
 		{
 			ft_putendl_fd("obstructed", 2);
-			obj.rgb.rgb[0] /= 2;
-			obj.rgb.rgb[1] /= 2;
-			obj.rgb.rgb[2] /= 2;
-			obj.rgb.rgb[3] /= 2;
+			obj.rgb.rgb[0] = 0xff;
+			obj.rgb.rgb[1] = 0xff;
+			obj.rgb.rgb[2] = 0xff;
 		}
 		++lights;
 	}
