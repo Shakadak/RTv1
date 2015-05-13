@@ -25,7 +25,9 @@ t_color	ray_shade(t_object obj,
 	t_ray		normal;
 	t_ray		l_ray;
 	double		dot;
+	double		expo;
 
+	expo = 0.0;
 	normal = ray_normal(obj, ray, dist);
 	while (lights->defined)
 	{
@@ -48,25 +50,18 @@ t_color	ray_shade(t_object obj,
 		{
 			ft_putendl_fd("antidot", 2);
 			++lights;
-			obj.rgb.rgb[0] /= 9;
-			obj.rgb.rgb[1] /= 9;
-			obj.rgb.rgb[2] /= 9;
-			obj.rgb.rgb[3] /= 9;
 			continue;
 		}
-		obj.rgb.rgb[0] *= dot;
-		obj.rgb.rgb[1] *= dot;
-		obj.rgb.rgb[2] *= dot;
-		obj.rgb.rgb[3] *= dot;
 		l_ray.pos = normal.pos;
-		if (obstructed(olist, l_ray))
+		if (!obstructed(olist, l_ray))
 		{
-			ft_putendl_fd("obstructed", 2);
-			obj.rgb.rgb[0] /= 2;
-			obj.rgb.rgb[1] /= 2;
-			obj.rgb.rgb[2] /= 2;
+			expo += dot;
+			ft_putendl_fd("not obstructed", 2);
 		}
 		++lights;
 	}
+	obj.rgb.rgb[0] = expo * obj.rgb.rgb[0] > 0xFF ? 255 : expo * obj.rgb.rgb[0];
+	obj.rgb.rgb[1] = expo * obj.rgb.rgb[1] > 0xFF ? 255 : expo * obj.rgb.rgb[1];
+	obj.rgb.rgb[2] = expo * obj.rgb.rgb[2] > 0xFF ? 255 : expo * obj.rgb.rgb[2];
 	return (obj.rgb);
 }
