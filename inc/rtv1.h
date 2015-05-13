@@ -6,7 +6,7 @@
 /*   By: npineau <npineau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/06 16:42:15 by npineau           #+#    #+#             */
-/*   Updated: 2015/04/09 16:29:05 by npineau          ###   ########.fr       */
+/*   Updated: 2015/05/13 15:40:21 by npineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,6 @@ typedef struct		s_env
 	t_img			img;
 }					t_env;
 
-int					key_press(int key);
+int					key_press(int key, t_env const *env);
 int					update_screen(t_env const *env);
 #endif
