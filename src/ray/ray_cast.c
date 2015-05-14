@@ -16,7 +16,7 @@ static t_onear	get_nearest(t_object const * olist, t_ray const ray)
 	nearest.distance = DBL_MAX;
 	while (olist->defined)
 	{
-		distance = intersec_quadric(*olist, ray_transform(ray, olist->pipe));
+		distance = intersec_quadric(*olist, /*ray_transform(*/ray/*, olist->pipe)*/);
 		if (distance > 0 && distance < nearest.distance)
 		{
 			nearest.distance = distance;

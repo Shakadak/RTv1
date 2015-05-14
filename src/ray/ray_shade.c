@@ -27,41 +27,41 @@ t_color	ray_shade(t_object obj,
 	double		dot;
 	double		expo;
 
-	expo = 1.0;
-	normal = ray_normal(obj, ray, dist);
+	expo = 0.8;
+	normal = ray_normal(obj, ray, dist);/*
 	while (lights->defined)
-	{/*
+	{*//*
 		printf("normal.pos [%f,%f,%f] : light.pos [%f,%f,%f]\n", normal.pos.mtx[0],
 				normal.pos.mtx[1],
 				normal.pos.mtx[2],
 				lights->pos.mtx[0],
 				lights->pos.mtx[1],
-				lights->pos.mtx[2]);*/
+				lights->pos.mtx[2]);*//*
 		l_ray.dir = mtx_sub(lights->pos, normal.pos);
-		dot = vec_dot(normal.dir, vec_normalize(l_ray.dir));/*
+		dot = vec_dot(normal.dir, vec_normalize(l_ray.dir));*//*
 		printf("normal.dir [%f,%.19f,%f] : light.dir [%f,%f,%f]\n", normal.dir.mtx[0],
 				normal.dir.mtx[1],
 				normal.dir.mtx[2],
 				l_ray.dir.mtx[0],
 				l_ray.dir.mtx[1],
-				l_ray.dir.mtx[2]);*/
-			printf("dot = %f\n", dot);
-		if (!(dot <= 1 + EPSILON && dot >= 0 - EPSILON))
-		{
-			ft_putendl_fd("antidot", 2);
+				l_ray.dir.mtx[2]);
+			printf("dot = %f\n", dot);*//*
+		if (!(0.0 < dot && dot <= 1))
+		{*//*
+			ft_putendl_fd("antidot", 2);*//*
 			++lights;
 			continue;
 		}
 		l_ray.pos = normal.pos;
 		if (!obstructed(olist, l_ray))
 		{
-			expo *= 1 - dot;
-			ft_putendl_fd("not obstructed", 2);
+			expo *= 1 - dot;*//*
+			ft_putendl_fd("not obstructed", 2);*//*
 		}
 		++lights;
-	}
-	expo = 1 - expo;
-	printf("\tExposition:\t%f\n", expo);
+	}*/
+	expo = 1 - expo;/*
+	printf("\tExposition:\t%f\n", expo);*/
 	obj.rgb.rgb[0] = expo * obj.rgb.rgb[0] > 0xFF ? 255 : expo * obj.rgb.rgb[0];
 	obj.rgb.rgb[1] = expo * obj.rgb.rgb[1] > 0xFF ? 255 : expo * obj.rgb.rgb[1];
 	obj.rgb.rgb[2] = expo * obj.rgb.rgb[2] > 0xFF ? 255 : expo * obj.rgb.rgb[2];

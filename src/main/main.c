@@ -32,11 +32,11 @@ int	main(void)
 
 	ft_bzero(&env, sizeof(env));
 	env.camera = new_camera(vtx_new(0, 0, -20, 1), vtx_new(0, 0, -1, 1), new_pos(1350, 750, 0));
-	env.objects[6] = new_cone(vtx_new(1, 1, 1.0, 1),
+	env.objects[0] = new_cone(vtx_new(1, 1, 1.0, 1),
 			vtx_new(90 * M_PI / 180, 00 * M_PI / 180, 00 * M_PI / 180, 1),
 			vtx_new(0, 0, -105, 1),
 			new_color(0xFF, 0x00, 0x00, 0x00));
-	env.objects[0] = new_sphere(vtx_new(25, 25, 25, 1),
+	env.objects[1] = new_sphere(vtx_new(25, 25, 25, 1),
 			vtx_new(0 * M_PI / 180, 0 * M_PI / 180, 00 * M_PI / 180, 1),
 			vtx_new(0, 0, -105, 1),
 			new_color(0xFF, 0xFF, 0x00, 0x00));
@@ -52,11 +52,12 @@ int	main(void)
 			vtx_new(90 * M_PI / 180, 0 * M_PI / 180, 00 * M_PI / 180, 1),
 			vtx_new(15, 0, -64, 1),
 			new_color(0x00, 0xFF, 0x00, 0x00));
-	env.objects[5] = new_plane(vtx_new(25, 25, 25, 1),
+	env.objects[0] = new_plane(vtx_new(25, 25, 25, 1),
 			vtx_new(000 * M_PI / 180, 000 * M_PI / 180, 00 * M_PI / 180, 1),
 			vtx_new(-200, 0, -105, 1),
 			new_color(0xFF, 0x00, 0x00, 0x00));
 	env.lights[0] = new_light(vtx_new(0, 0, 0, 1));
+	env.lights[1] = new_light(vtx_new(50, 0, -105, 1));
 	env.lights[2] = new_light(vtx_new(-50, 0, -105, 1));
 	env.mlx = new_mlx();
 	env.win = new_window(env.mlx, env.camera.screen.x, env.camera.screen.y,
