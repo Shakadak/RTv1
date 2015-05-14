@@ -56,10 +56,11 @@ int	main(void)
 	env.lights[0] = new_light(vtx_new(0, 0, 0, 1));
 	env.lights[1] = new_light(vtx_new(-50, 0, -105, 1));
 	env.mlx = new_mlx();
-	env.win = new_window(env.mlx, env.camera.screen.x, env.camera.screen.y, "holy carp");
+	env.win = new_window(env.mlx, env.camera.screen.x, env.camera.screen.y,
+			"holy carp");
 	env.img = new_image(env.mlx, env.camera.screen.x, env.camera.screen.y);
-	mlx_loop_hook(env.mlx, test, (void *)&env);
-	mlx_key_hook(env.win.win, key_press, NULL);
+	mlx_loop_hook(env.mlx, test, &env);
+	mlx_key_hook(env.win.win, key_press, &env);
 	mlx_expose_hook(env.win.win, update_screen, &env);
 	mlx_loop(env.mlx);
 	return (0);
