@@ -19,6 +19,7 @@ int	test(t_env *env)
 		++y;
 		if (y % (env->img.dim.y / 10) == 0)
 		{
+			ft_putendl_fd("screen", 2);
 			update_screen(env);
 			mlx_do_sync(env->mlx);
 		}
@@ -44,7 +45,7 @@ int	main(void)
 			vtx_new(0 * M_PI / 180, 0 * M_PI / 180, 00 * M_PI / 180, 1),
 			vtx_new(-15, 0, -105, 1),
 			new_color(0xFF, 0xFF, 0x00, 0x00));
-	env.objects[3] = new_sphere(vtx_new(25, 25, 25, 1),
+	env.objects[0] = new_sphere(vtx_new(25, 25, 25, 1),
 			vtx_new(0 * M_PI / 180, 0 * M_PI / 180, 00 * M_PI / 180, 1),
 			vtx_new(15, 0, -105, 1),
 			new_color(0xFF, 0xFF, 0x00, 0x00));
@@ -52,7 +53,7 @@ int	main(void)
 			vtx_new(90 * M_PI / 180, 0 * M_PI / 180, 00 * M_PI / 180, 1),
 			vtx_new(15, 0, -64, 1),
 			new_color(0x00, 0xFF, 0x00, 0x00));
-	env.objects[0] = new_plane(vtx_new(25, 25, 25, 1),
+	env.objects[5] = new_plane(vtx_new(25, 25, 25, 1),
 			vtx_new(000 * M_PI / 180, 000 * M_PI / 180, 00 * M_PI / 180, 1),
 			vtx_new(-200, 0, -105, 1),
 			new_color(0xFF, 0x00, 0x00, 0x00));

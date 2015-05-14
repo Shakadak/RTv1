@@ -1,20 +1,20 @@
 #include "rtv1.h"
 #include "stdio.h"//////////////
-
+/*
 static int	obstructed(t_object const *olist, t_ray const ray)
 {
 	double		d;
 
 	while (olist->defined)
 	{
-		d = intersec_quadric(*olist, ray_transform(ray, olist->pipe));/*
-		printf("d = %.19f, ray.magnitude = %f\n", d, vec_magnitude(ray.dir));*/
+		d = intersec_quadric(*olist, ray_transform(ray, olist->pipe));
+		printf("d = %.19f, ray.magnitude = %f\n", d, vec_magnitude(ray.dir));*//*
 		if (0.0 + EPSILON < d && d < vec_magnitude(ray.dir) - EPSILON)
 			return (1);
 		++olist;
 	}
 	return (0);
-}
+}*/
 
 t_color	ray_shade(t_object obj,
 		t_ray const ray,
@@ -27,8 +27,16 @@ t_color	ray_shade(t_object obj,
 	double		dot;
 	double		expo;
 
-	expo = 0.8;
-	normal = ray_normal(obj, ray, dist);/*
+	(void)normal;
+	(void)l_ray;
+	(void)dot;
+	(void)ray;
+	(void)dist;
+	(void)olist;
+	(void)lights;
+			ft_putendl_fd("yolo", 2);
+	expo = 0.5;/*
+	normal = ray_normal(obj, ray, dist);
 	while (lights->defined)
 	{*//*
 		printf("normal.pos [%f,%f,%f] : light.pos [%f,%f,%f]\n", normal.pos.mtx[0],
@@ -60,8 +68,8 @@ t_color	ray_shade(t_object obj,
 		}
 		++lights;
 	}*/
-	expo = 1 - expo;/*
-	printf("\tExposition:\t%f\n", expo);*/
+	expo = 1 - expo;
+	printf("\tExposition:\t%f\n", expo);
 	obj.rgb.rgb[0] = expo * obj.rgb.rgb[0] > 0xFF ? 255 : expo * obj.rgb.rgb[0];
 	obj.rgb.rgb[1] = expo * obj.rgb.rgb[1] > 0xFF ? 255 : expo * obj.rgb.rgb[1];
 	obj.rgb.rgb[2] = expo * obj.rgb.rgb[2] > 0xFF ? 255 : expo * obj.rgb.rgb[2];
