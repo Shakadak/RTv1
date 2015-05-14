@@ -17,8 +17,11 @@ int	test(t_env *env)
 			++x;
 		}
 		++y;
-		update_screen(env);
-		mlx_do_sync(env->mlx);
+		if (y % (env->img.dim.y / 10) == 0)
+		{
+			update_screen(env);
+			mlx_do_sync(env->mlx);
+		}
 	}
 	return (0);
 }
@@ -54,7 +57,7 @@ int	main(void)
 			vtx_new(-200, 0, -105, 1),
 			new_color(0xFF, 0x00, 0x00, 0x00));
 	env.lights[0] = new_light(vtx_new(0, 0, 0, 1));
-	env.lights[1] = new_light(vtx_new(-50, 0, -105, 1));
+	env.lights[2] = new_light(vtx_new(-50, 0, -105, 1));
 	env.mlx = new_mlx();
 	env.win = new_window(env.mlx, env.camera.screen.x, env.camera.screen.y,
 			"holy carp");
