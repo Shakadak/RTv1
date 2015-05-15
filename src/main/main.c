@@ -17,12 +17,8 @@ int	test(t_env *env)
 			++x;
 		}
 		++y;
-		if (y % (env->img.dim.y / 10) == 0)
-		{
-			ft_putendl_fd("screen", 2);
+//		if ((y + 1) % (env->img.dim.y / 10) == 0)
 			update_screen(env);
-			mlx_do_sync(env->mlx);
-		}
 	}
 	return (0);
 }
@@ -32,34 +28,38 @@ int	main(void)
 	t_env	env;
 
 	ft_bzero(&env, sizeof(env));
-	env.camera = new_camera(vtx_new(0, 0, -20, 1), vtx_new(0, 0, -1, 1), new_pos(1350, 750, 0));
+	env.camera = new_camera(vtx_new(0, 0, -20, 1), vtx_new(0, 0, -1, 1), new_pos(2000, 1000, 0));
 	env.objects[0] = new_cone(vtx_new(1, 1, 1.0, 1),
 			vtx_new(90 * M_PI / 180, 00 * M_PI / 180, 00 * M_PI / 180, 1),
 			vtx_new(0, 0, -105, 1),
 			new_color(0xFF, 0x00, 0x00, 0x00));
 	env.objects[1] = new_sphere(vtx_new(25, 25, 25, 1),
 			vtx_new(0 * M_PI / 180, 0 * M_PI / 180, 00 * M_PI / 180, 1),
-			vtx_new(0, 0, -105, 1),
+			vtx_new(0, 15, -105, 1),
 			new_color(0xFF, 0xFF, 0x00, 0x00));
 	env.objects[2] = new_sphere(vtx_new(25, 25, 25, 1),
 			vtx_new(0 * M_PI / 180, 0 * M_PI / 180, 00 * M_PI / 180, 1),
-			vtx_new(-15, 0, -105, 1),
+			vtx_new(-15, 30, -105, 1),
 			new_color(0xFF, 0xFF, 0x00, 0x00));
 	env.objects[3] = new_sphere(vtx_new(25, 25, 25, 1),
 			vtx_new(0 * M_PI / 180, 0 * M_PI / 180, 00 * M_PI / 180, 1),
 			vtx_new(15, 0, -105, 1),
 			new_color(0xFF, 0xFF, 0x00, 0x00));
-	env.objects[4] = new_cylinder(vtx_new(5, 5, 5, 1),
+	env.objects[4] = new_cylinder(vtx_new(4, 4, 4, 1),
 			vtx_new(90 * M_PI / 180, 0 * M_PI / 180, 00 * M_PI / 180, 1),
 			vtx_new(15, 0, -64, 1),
 			new_color(0x00, 0xFF, 0x00, 0x00));
 	env.objects[5] = new_plane(vtx_new(25, 25, 25, 1),
 			vtx_new(000 * M_PI / 180, 000 * M_PI / 180, 00 * M_PI / 180, 1),
-			vtx_new(-200, 0, -105, 1),
-			new_color(0xFF, 0x00, 0x00, 0x00));
+			vtx_new(0, 0, -205, 1),
+			new_color(0x00, 0x00, 0xFF, 0x00));
+	env.objects[6] = new_cylinder(vtx_new(4, 4, 4, 1),
+			vtx_new(90 * M_PI / 180, 0 * M_PI / 180, 90 * M_PI / 180, 1),
+			vtx_new(15, 50, -64, 1),
+			new_color(0x00, 0xFF, 0x00, 0x00));
 	env.lights[0] = new_light(vtx_new(0, 0, 0, 1));
-	env.lights[1] = new_light(vtx_new(50, 0, -105, 1));
-	env.lights[2] = new_light(vtx_new(-50, 0, -105, 1));
+	env.lights[1] = new_light(vtx_new(90, 0, +75, 1));
+	env.lights[0] = new_light(vtx_new(-70, 0, -85, 1));
 	env.mlx = new_mlx();
 	env.win = new_window(env.mlx, env.camera.screen.x, env.camera.screen.y,
 			"holy carp");
