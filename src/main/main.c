@@ -45,7 +45,7 @@ int	main(void)
 			vtx_new(0 * M_PI / 180, 0 * M_PI / 180, 00 * M_PI / 180, 1),
 			vtx_new(-15, 0, -105, 1),
 			new_color(0xFF, 0xFF, 0x00, 0x00));
-	env.objects[0] = new_sphere(vtx_new(25, 25, 25, 1),
+	env.objects[3] = new_sphere(vtx_new(25, 25, 25, 1),
 			vtx_new(0 * M_PI / 180, 0 * M_PI / 180, 00 * M_PI / 180, 1),
 			vtx_new(15, 0, -105, 1),
 			new_color(0xFF, 0xFF, 0x00, 0x00));

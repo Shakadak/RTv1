@@ -14,5 +14,6 @@ t_object	new_cylinder(t_mtx const scale,
 	cylinder.quadric.mtx[0 * 4 + 0] = 1;
 	cylinder.quadric.mtx[1 * 4 + 1] = 1;
 	cylinder.quadric.mtx[3 * 4 + 3] = -1;
+	cylinder.quadric = mtx_product(mtx_transpose(cylinder.pipe.i_pos), mtx_product(cylinder.quadric, cylinder.pipe.i_pos));
 	return (cylinder);
 }

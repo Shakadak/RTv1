@@ -16,7 +16,7 @@ static t_onear	get_nearest(t_object const * olist, t_ray const ray)
 	nearest.distance = DBL_MAX;
 	while (olist->defined)
 	{
-		distance = intersec_quadric(*olist, /*ray_transform(*/ray/*, olist->pipe)*/);
+		distance = intersec_quadric(*olist, ray);
 		if (distance > 0 && distance < nearest.distance)
 		{
 			nearest.distance = distance;
@@ -26,6 +26,8 @@ static t_onear	get_nearest(t_object const * olist, t_ray const ray)
 	}
 	return (nearest);
 }
+
+#include <stdio.h>////////////////
 
 t_color		ray_cast(t_pos const pos,
 		t_camera const camera,
@@ -40,7 +42,10 @@ t_color		ray_cast(t_pos const pos,
 	ray = ray_new(camera, pos);
 	nearest = get_nearest(objects, ray);
 	if (nearest.obj.defined)
+	{
+//		printf("nearest distance: %f\n", nearest.distance);
 		return (ray_shade(nearest.obj, ray, nearest.distance, objects, lights));
+	}
 	else
 		return (nearest.obj.rgb);
 }
