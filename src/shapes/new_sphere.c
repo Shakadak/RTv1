@@ -16,6 +16,6 @@ t_object			new_sphere(
 	sphere.quadric.mtx[1 * 4 + 1] = 1;
 	sphere.quadric.mtx[2 * 4 + 2] = 1;
 	sphere.quadric.mtx[3 * 4 + 3] = -1;
-	sphere.quadric = mtx_product(mtx_transpose(mtx_adjugate(sphere.pipe.t_pos)), mtx_product(sphere.quadric, mtx_adjugate(sphere.pipe.t_pos)));
+	sphere.quadric = mtx_product(mtx_transpose(sphere.pipe.i_pos), mtx_product(sphere.quadric, sphere.pipe.i_pos));
 	return (sphere);
 }
