@@ -6,7 +6,7 @@
 #    By: npineau <npineau@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/01/23 12:57:00 by npineau           #+#    #+#              #
-#    Updated: 2015/05/12 15:54:44 by npineau          ###   ########.fr        #
+#    Updated: 2015/05/16 14:45:49 by npineau          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,8 @@ DIRSRC	:=	src
 DIROBJ	:=	obj
 DIRINC	:=	inc
 DIRFT	:=	libft
-DIRMLX	:=	libumlx
+DIRUMLX	:=	libumlx
+DIRMLX	:=	minilibx_macos
 DIRMTX	:=	libmtx
 
 DIRMAIN		:=	$(DIRSRC)/main
@@ -38,7 +39,8 @@ include $(DIRUTIL)/sources.mk
 POBJ	:=	$(addprefix $(DIROBJ)/, $(OBJ))
 
 PFT		:= $(DIRFT)/libft.a
-PMLX	:= $(DIRMLX)/libumlx.a
+PUMLX	:= $(DIRUMLX)/libumlx.a
+PMLX	:= $(DIRMLX)/libmlx.a
 PMTX	:= $(DIRMTX)/libmtx.a
 
 ### COMPILATION VARIABLES ###
@@ -50,14 +52,14 @@ O_FLAG	:=	-O3
 
 C_INC	:=	-I $(DIRINC) \
 			-I $(DIRFT)/$(DIRINC) \
-			-I $(DIRMLX)/$(DIRINC) \
+			-I $(DIRUMLX)/$(DIRINC) \
 			-I $(DIRMTX)/$(DIRINC) \
-			-I /usr/x11/include
+			-I $(DIRMLX)
 
 L_FLAG	:=	-L $(DIRMTX) -lmtx \
-			-L $(DIRMLX) -lumlx \
+			-L $(DIRUMLX) -lumlx \
 			-L $(DIRFT) -lft \
-			-lmlx \
+			-L $(DIRMLX) -lmlx \
 			-framework OpenGL -framework AppKit \
 			-lm
 
@@ -69,7 +71,7 @@ LINK	= $(CC) -o $@ $^ $(L_FLAG)
 
 .PHONY: all clean fclean re
 
-all: $(PFT) $(PMLX) $(PMTX) $(NAME)
+all: $(PMLX) $(PFT) $(PUMLX) $(PMTX) $(NAME)
 
 $(POBJ): |$(DIROBJ)
 
@@ -97,6 +99,10 @@ clean:
 
 fclean: clean
 	rm -f $(NAME)
+	make -C $(DIRFT) fclean
+	make -C $(DIRUMLX) fclean
+	make -C $(DIRMLX) clean
+	make -C $(DIRMTX) fclean
 
 run: all
 	./$(NAME)
