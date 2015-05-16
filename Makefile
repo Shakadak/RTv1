@@ -6,7 +6,7 @@
 #    By: npineau <npineau@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/01/23 12:57:00 by npineau           #+#    #+#              #
-#    Updated: 2015/05/16 14:45:49 by npineau          ###   ########.fr        #
+#    Updated: 2015/05/16 14:49:12 by npineau          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -85,6 +85,9 @@ $(NAME): $(POBJ)
 
 $(PFT):
 	make -C $(DIRFT)
+
+$(PUMLX):
+	make -C $(DIRUMLX)
 
 $(PMLX):
 	make -C $(DIRMLX)
