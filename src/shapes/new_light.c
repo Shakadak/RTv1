@@ -4,7 +4,7 @@ int		set_light(char *const *array, t_env *env)
 {
 	static int	i = 0;
 
-	if (array[1] && array[2] && array[3] && array[4] && i < MAX_LIGHTS)
+	if (ft_split_len(array) == 5 && i < MAX_LIGHTS)
 	{
 		env->lights[i] = new_light(
 				vtx_new(ft_atoi(array[1]),

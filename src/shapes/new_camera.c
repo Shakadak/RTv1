@@ -5,7 +5,7 @@ int		set_camera(char *const *array, t_env *env)
 {
 	static int	i = 0;
 
-	if (array[1] && array[2] && array[3] && array[4] && array[5] && array[6] && array[7] && array[8] && i < MAX_CAMERAS)
+	if (ft_split_len(array) == 9 && i < MAX_CAMERAS)
 	{
 		env->camera[i] = new_camera(
 				vtx_new(ft_atoi(array[1]),
