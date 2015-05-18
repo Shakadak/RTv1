@@ -40,7 +40,7 @@ t_color	ray_shade(t_object obj,
 		l_ray.pos = normal.pos;
 		if (!obstructed(olist, l_ray))
 		{
-			expo *= (1 - dot);
+			expo *= (1 - dot * lights->intensity);
 		}
 		++lights;
 	}

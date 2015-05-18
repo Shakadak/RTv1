@@ -6,7 +6,7 @@
 /*   By: npineau <npineau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/06 16:42:15 by npineau           #+#    #+#             */
-/*   Updated: 2015/05/13 15:40:21 by npineau          ###   ########.fr       */
+/*   Updated: 2015/05/18 17:32:39 by npineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,16 @@
 # include "util.h"
 # include "shapes.h"
 
+# define MAX_LIGHTS 20
+# define MAX_OBJECTS 20
+# define MAX_CAMERAS 20
+
 typedef struct		s_env
 {
 	void			*mlx;
-	t_object		objects[20];
-	t_light			lights[20];
-	t_camera		camera;
+	t_object		objects[MAX_OBJECTS];
+	t_light			lights[MAX_LIGHTS];
+	t_camera		camera[MAX_CAMERAS];
 	t_win			win;
 	t_img			img;
 }					t_env;

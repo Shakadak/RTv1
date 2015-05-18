@@ -5,10 +5,10 @@
 
 typedef struct	s_camera
 {
-	double		fov;
-	t_pos		screen;
 	t_mtx		dir;
 	t_mtx		pos;
+	t_pos		screen;
+	double		fov;
 }				t_camera;
 
 typedef struct	s_ray
@@ -19,16 +19,17 @@ typedef struct	s_ray
 
 typedef struct	s_light
 {
-	int			defined;
 	t_mtx		pos;
+	double		intensity;
+	int			defined;
 }				t_light;
 
 typedef struct	s_object
 {
-	int			defined;
+	t_pipe		pipe;
 	t_mtx		quadric;
 	t_color		rgb;
-	t_pipe		pipe;
+	int			defined;
 }				t_object;
 
 t_object		new_cone(
@@ -54,7 +55,7 @@ t_camera		new_camera(
 		t_mtx const pos,
 		t_mtx const direction,
 		t_pos const screen);
-t_light	new_light(t_mtx const coordinate);
+t_light	new_light(t_mtx const coordinate, double const intensity);
 t_ray			ray_new(t_camera const camera,
 		t_pos const pos);
 t_color			ray_cast(t_pos const pos,

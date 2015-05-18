@@ -12,13 +12,12 @@ int	test(t_env *env)
 		x = 0;
 		while (x < env->img.dim.x)
 		{
-			rgb = ray_cast(new_pos(x, y, 0), env->camera, env->objects, env->lights);
+			rgb = ray_cast(new_pos(x, y, 0), env->camera[0], env->objects, env->lights);
 			put_pixel_to_image(env->img, new_pixel(new_pos(x, y, 0), rgb));
 			++x;
 		}
 		++y;
-//		if ((y + 1) % (env->img.dim.y / 10) == 0)
-			update_screen(env);
+		update_screen(env);
 	}
 	return (0);
 }
@@ -28,7 +27,7 @@ int	main(void)
 	t_env	env;
 
 	ft_bzero(&env, sizeof(env));
-	env.camera = new_camera(vtx_new(0, 0, +0, 1), vtx_new(0, 0, -1, 1), new_pos(2000, 1000, 0));
+	env.camera[0] = new_camera(vtx_new(0, 0, +0, 1), vtx_new(0, 0, -1, 1), new_pos(2000, 1000, 0));
 	env.objects[0] = new_cone(vtx_new(1, 1, 1.0, 1),
 			vtx_new(90 * M_PI / 180, 00 * M_PI / 180, 00 * M_PI / 180, 1),
 			vtx_new(0, 0, -105, 1),
@@ -65,13 +64,13 @@ int	main(void)
 			vtx_new(000 * M_PI / 180, -80 * M_PI / 180, 00 * M_PI / 180, 1),
 			vtx_new(-80, 0, -205, 1),
 			new_color(0x00, 0x00, 0xFF, 0x00));
-	env.lights[0] = new_light(vtx_new(0, 0, 0, 1));
-	env.lights[1] = new_light(vtx_new(90, 0, +75, 1));
-	env.lights[0] = new_light(vtx_new(-70, 0, -85, 1));
+	env.lights[0] = new_light(vtx_new(0, 0, 0, 1), 1);
+	env.lights[1] = new_light(vtx_new(90, 0, +75, 1), 1);
+	env.lights[0] = new_light(vtx_new(-70, 0, -85, 1), 0.5);
 	env.mlx = new_mlx();
-	env.win = new_window(env.mlx, env.camera.screen.x, env.camera.screen.y,
+	env.win = new_window(env.mlx, env.camera[0].screen.x, env.camera[0].screen.y,
 			"holy carp");
-	env.img = new_image(env.mlx, env.camera.screen.x, env.camera.screen.y);
+	env.img = new_image(env.mlx, env.camera[0].screen.x, env.camera[0].screen.y);
 	mlx_loop_hook(env.mlx, test, &env);
 	mlx_key_hook(env.win.win, key_press, &env);
 	mlx_expose_hook(env.win.win, update_screen, &env);
