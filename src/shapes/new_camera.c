@@ -20,7 +20,7 @@ int		set_camera(char *const *array, t_env *env)
 	}
 	else
 	{
-		ft_putendl_fd("Error while setting light, skipping.", 2);
+		ft_putendl_fd("Error while setting camera, skipping.", 2);
 		return (-1);
 	}
 }
