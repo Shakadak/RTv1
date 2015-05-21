@@ -6,7 +6,7 @@
 #    By: npineau <npineau@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/01/23 12:57:00 by npineau           #+#    #+#              #
-#    Updated: 2015/05/21 16:28:32 by npineau          ###   ########.fr        #
+#    Updated: 2015/05/21 19:44:01 by npineau          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -110,6 +110,6 @@ fclean: clean
 	make -C $(DIRMTX) fclean
 
 run: all
-	./$(NAME)
+	./$(NAME) scenes/001.rtv1
 
 re: fclean all
