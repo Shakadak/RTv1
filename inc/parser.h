@@ -26,7 +26,9 @@ typedef struct	s_atom
 	t_color		color;
 }				t_atom;
 
-t_atom	atom_new(void);
-t_atom			fill_type(t_atom atom, char const * const * const array, int *i);
+t_atom			atom_fill(char const *const *const array);
+t_atom			atom_new(void);
+t_color			fill_color(char const *const *const src, int *i);
+t_mtx			fill_transformation(char const *const *const src, int *i);
 
 #endif

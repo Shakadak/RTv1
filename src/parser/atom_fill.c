@@ -7,7 +7,7 @@ static t_atom	get_fill(t_atom atom, char const *const *const src, int *i)
 	else if (!ft_strcmp(src[*i], "LIGHT"))
 		atom.type = LIGHT;
 	else if (!ft_strcmp(src[*i], "CYLINDER"))
-		atom.type = CYLINDRE;
+		atom.type = CYLINDER;
 	else if (!ft_strcmp(src[*i], "CONE"))
 		atom.type = CONE;
 	else if (!ft_strcmp(src[*i], "PLANE"))
@@ -15,13 +15,13 @@ static t_atom	get_fill(t_atom atom, char const *const *const src, int *i)
 	else if (!ft_strcmp(src[*i], "SPHERE"))
 		atom.type = SPHERE;
 	else if (!ft_strcmp(src[*i], "SCALE"))
-		atom.scale = fill_scale(src, i);
+		atom.scale = fill_transformation(src, i);
 	else if (!ft_strcmp(src[*i], "ROTATION"))
-		atom.rotation = fill_rotation(src, i);
+		atom.rotation = fill_transformation(src, i);
 	else if (!ft_strcmp(src[*i], "TRANSLATION"))
-		atom.translation = fill_translation(src, i);
+		atom.translation = fill_transformation(src, i);
 	else if (!ft_strcmp(src[*i], "COLOR"))
-		atom.translation = fill_color(src, i);
+		atom.color = fill_color(src, i);
 	else
 		ft_fatal("Error while parsing file.\n", 0);
 	++(*i);
