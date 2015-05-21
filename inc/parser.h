@@ -24,6 +24,7 @@ typedef struct	s_atom
 	t_mtx		rotation;
 	t_mtx		translation;
 	t_color		color;
+	double		intensity;
 }				t_atom;
 
 t_atom			atom_fill(char const *const *const array);

@@ -32,25 +32,10 @@ typedef struct	s_object
 	int			defined;
 }				t_object;
 
-t_object		new_cone(
-		t_mtx const scale,
-		t_mtx const rotate,
-		t_mtx const translate,
-		t_color const color);
-t_object		new_cylinder(t_mtx const scale,
-		t_mtx const rotate,
-		t_mtx const translate,
-		t_color const color);
-t_object		new_sphere(
-		t_mtx const scale,
-		t_mtx const rotate,
-		t_mtx const translate,
-		t_color const color);
-t_object		new_plane(
-		t_mtx const scale,
-		t_mtx const rotate,
-		t_mtx const translate,
-		t_color const color);
+t_object		new_cone(t_pipe const pipe, t_color const color);
+t_object		new_cylinder(t_pipe const pipe, t_color const color);
+t_object		new_sphere(t_pipe const pipe, t_color const color);
+t_object		new_plane(t_pipe const pipe, t_color const color);
 t_camera		new_camera(
 		t_mtx const pos,
 		t_mtx const direction,
@@ -62,7 +47,9 @@ t_color			ray_cast(t_pos const pos,
 		t_camera const camera,
 		t_object *objects,
 		t_light const *lights);
-t_ray			ray_normal(t_object const obj, t_ray const ray, double const dist);
+t_ray			ray_normal(t_object const obj,
+		t_ray const ray,
+		double const dist);
 t_color			ray_shade(t_object obj,
 		t_ray const ray,
 		double const dist,
