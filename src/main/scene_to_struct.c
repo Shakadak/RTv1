@@ -19,7 +19,10 @@ int			scene_to_struct(char const *path, t_env *env)
 	int		ret;
 
 	if ((fd = open(path, O_RDONLY)) < 0)
+	{
+		ft_putendl_fd("Error while trying to open the scene", 2);
 		return (fd);
+	}
 	while ((ret = get_next_line(fd, &line)) > 0)
 	{
 		line_to_struct(line, env);
