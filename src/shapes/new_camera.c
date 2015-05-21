@@ -1,13 +1,27 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   new_camera.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: npineau <npineau@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2015/05/21 19:34:42 by npineau           #+#    #+#             */
+/*   Updated: 2015/05/21 19:35:52 by npineau          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "rtv1.h"
 #include <math.h>
 
-t_camera	new_camera(t_mtx const pos, t_mtx const dir, t_pos const dim)
+t_camera	new_camera(t_mtx const translation,
+		t_mtx const rotation,
+		t_pos const dim)
 {
 	t_camera	camera;
 
-	camera.dir = mtx_dup(dir);
+	camera.transform = transform_pipeline(vtx_new(1, 1, 1, 1),
+			mtx_scalar_mult(M_PI / 180, rotation), translation);
 	camera.fov = 90 * M_PI / 180;
-	camera.pos = mtx_dup(pos);
 	camera.screen = dim;
 	return (camera);
 }

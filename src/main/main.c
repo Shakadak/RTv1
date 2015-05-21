@@ -1,4 +1,3 @@
-#include <math.h>
 #include "rtv1.h"
 
 int	test(t_env *env)

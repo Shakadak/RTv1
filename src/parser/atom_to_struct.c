@@ -1,10 +1,12 @@
 #include "rtv1.h"
+#include <math.h>
 
 static t_object	new_object(t_atom atom)
 {
 	t_pipe	pipe;
 
-	pipe = transform_pipeline(atom.scale, atom.rotation, atom.translation);
+	pipe = transform_pipeline(atom.scale,
+			mtx_scalar_mult(M_PI / 180, atom.rotation), atom.translation);
 	if (atom.type == CONE)
 		return (new_cone(pipe, atom.color));
 	else if (atom.type == CYLINDER)

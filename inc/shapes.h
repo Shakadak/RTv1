@@ -5,8 +5,7 @@
 
 typedef struct	s_camera
 {
-	t_mtx		dir;
-	t_mtx		pos;
+	t_pipe		transform;
 	t_pos		screen;
 	double		fov;
 }				t_camera;
