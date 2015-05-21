@@ -25,5 +25,6 @@ int		scene_to_struct(char const *path, t_env *env)
 		free(line);
 	}
 	free(line);
+	close(fd);
 	return (ret);
 }
