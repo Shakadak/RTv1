@@ -22,9 +22,10 @@ static t_atom	get_fill(t_atom atom, char const *const *const src, int *i)
 		atom.translation = fill_transformation(src, i);
 	else if (!ft_strcmp(src[*i], "COLOR"))
 		atom.color = fill_color(src, i);
+	else if (!ft_strcmp(src[*i], "INTENSITY"))
+		atom.intensity = ft_atof(src[(*i)++]);
 	else
 		ft_fatal("Error while parsing file.\n", 0);
-	++(*i);
 	return (atom);
 }
 
@@ -38,6 +39,7 @@ t_atom			atom_fill(char const *const *const array)
 	while (array[i] != NULL)
 	{
 		atom = get_fill(atom, array, &i);
+		++i;
 	}
 	return (atom);
 }
