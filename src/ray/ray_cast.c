@@ -1,30 +1,23 @@
 #include <float.h>
 #include "rtv1.h"
 
-typedef struct	s_onear
-{
-	t_object	obj;
-	double		distance;
-}				t_onear;
-
-static t_onear	get_nearest(t_object const * olist, t_ray const ray)
+static void	get_nearest(t_object const * olist, t_ray const ray,
+		t_object *nearest_object, double *nearest_distance)
 {
 	double	distance;
-	t_onear	nearest;
 
-	ft_bzero(&nearest, sizeof(nearest));
-	nearest.distance = DBL_MAX;
+	ft_bzero(nearest_object, sizeof(*nearest_object));
+	*nearest_distance = DBL_MAX;
 	while (olist->defined)
 	{
 		distance = intersec_quadric(*olist, ray);
-		if (distance >= 0 && distance < nearest.distance)
+		if (distance >= 0 && distance < *nearest_distance)
 		{
-			nearest.distance = distance;
-			nearest.obj = *olist;
+			*nearest_distance = distance;
+			*nearest_object = *olist;
 		}
 		++olist;
 	}
-	return (nearest);
 }
 
 t_color		ray_cast(t_pos const pos,
@@ -32,15 +25,16 @@ t_color		ray_cast(t_pos const pos,
 		t_object *objects,
 		t_light const *lights)
 {
-	t_ray	ray;
-	t_onear	nearest;
+	t_ray		ray;
+	t_object	nearest;
+	double		distance;
 
 	if (objects == NULL || lights == NULL)
 		ft_fatal("Objects or lights uninitialized", 0);
 	ray = ray_new(camera, pos);
-	nearest = get_nearest(objects, ray);
-	if (nearest.obj.defined)
-		return (ray_shade(nearest.obj, ray, nearest.distance, objects, lights));
+	get_nearest(objects, ray, &nearest, &distance);
+	if (nearest.defined)
+		return (ray_shade(nearest, ray, distance, objects, lights));
 	else
-		return (nearest.obj.rgb);
+		return (nearest.rgb);
 }
