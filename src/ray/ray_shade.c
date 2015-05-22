@@ -6,13 +6,13 @@
 /*   By: npineau <npineau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/22 19:31:57 by npineau           #+#    #+#             */
-/*   Updated: 2015/05/22 19:51:34 by npineau          ###   ########.fr       */
+/*   Updated: 2015/05/22 20:13:10 by npineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rtv1.h"
 
-static int	obstructed(t_object const *olist, t_ray const ray)
+static int		obstructed(t_object const *olist, t_ray const ray)
 {
 	double		d;
 
@@ -26,7 +26,15 @@ static int	obstructed(t_object const *olist, t_ray const ray)
 	return (0);
 }
 
-t_color		ray_shade(t_object obj,
+static t_color	update_color(t_color rgb, double factor)
+{
+	rgb.rgb[0] = factor * rgb.rgb[0] > 0xFF ? 255 : factor * rgb.rgb[0];
+	rgb.rgb[1] = factor * rgb.rgb[1] > 0xFF ? 255 : factor * rgb.rgb[1];
+	rgb.rgb[2] = factor * rgb.rgb[2] > 0xFF ? 255 : factor * rgb.rgb[2];
+	return (rgb);
+}
+
+t_color			ray_shade(t_object obj,
 		t_ray const ray,
 		double const dist,
 		t_object const *olist,
@@ -55,9 +63,5 @@ t_color		ray_shade(t_object obj,
 		}
 		++lights;
 	}
-	expo = 1 - expo;
-	obj.rgb.rgb[0] = expo * obj.rgb.rgb[0] > 0xFF ? 255 : expo * obj.rgb.rgb[0];
-	obj.rgb.rgb[1] = expo * obj.rgb.rgb[1] > 0xFF ? 255 : expo * obj.rgb.rgb[1];
-	obj.rgb.rgb[2] = expo * obj.rgb.rgb[2] > 0xFF ? 255 : expo * obj.rgb.rgb[2];
-	return (obj.rgb);
+	return (update_color(obj.rgb, 1 - expo));
 }
