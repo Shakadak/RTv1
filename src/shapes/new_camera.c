@@ -6,7 +6,7 @@
 /*   By: npineau <npineau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/21 19:34:42 by npineau           #+#    #+#             */
-/*   Updated: 2015/05/21 19:35:52 by npineau          ###   ########.fr       */
+/*   Updated: 2015/05/22 17:49:42 by npineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ t_camera	new_camera(t_mtx const translation,
 
 	camera.transform = transform_pipeline(vtx_new(1, 1, 1, 1),
 			mtx_scalar_mult(M_PI / 180, rotation), translation);
-	camera.fov = 90 * M_PI / 180;
+	camera.fov = FOV * M_PI / 180;
 	camera.screen = dim;
 	return (camera);
 }
