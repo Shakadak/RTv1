@@ -14,9 +14,10 @@ t_ray	ray_new(t_camera const camera,
 	x = (2 * x - 1) * (double)camera.screen.x / (double)camera.screen.y;
 	y = 1 - 2 * y;
 	x *= tan(camera.fov / 2.0);
-	z = -1;
-	ray.dir = vec_normalize(vec_new(x, y, z));
+	z = 1;
+	ray.dir = vec_new(x, y, z);
 	ray.pos = vtx_new(0, 0, 0 ,1);
 	ray = ray_transform(ray, camera.transform);
+	ray.dir = vec_normalize(ray.dir);
 	return (ray);
 }

@@ -17,7 +17,7 @@ static t_onear	get_nearest(t_object const * olist, t_ray const ray)
 	while (olist->defined)
 	{
 		distance = intersec_quadric(*olist, ray);
-		if (distance > 0 && distance < nearest.distance)
+		if (distance >= 0 && distance < nearest.distance)
 		{
 			nearest.distance = distance;
 			nearest.obj = *olist;

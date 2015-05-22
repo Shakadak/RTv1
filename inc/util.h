@@ -4,7 +4,7 @@
 # include "rtv1.h"
 
 # define SQR(x) ((x) * (x))
-# define EPSILON 0.00000001
+# define EPSILON 0.000001
 
 typedef struct	s_pipe
 {

@@ -25,7 +25,7 @@ static t_atom	get_fill(t_atom atom, char const *const *const src, int *i)
 	else if (!ft_strcmp(src[*i], "INTENSITY"))
 		atom.intensity = ft_atof(src[(*i)++]);
 	else
-		ft_fatal("Error while parsing file.\n", 0);
+		ft_fatal("Error while parsing file.", 0);
 	return (atom);
 }
 

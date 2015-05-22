@@ -8,6 +8,7 @@ t_atom	atom_new(void)
 	new.scale = vtx_new(1, 1, 1, 1);
 	new.rotation = vtx_new(0, 0, 0, 1);
 	new.translation = vtx_new(0, 0, 0, 1);
+	new.color = new_color(0xFF, 0xFF, 0xFF, 0x00);
 	new.intensity = 1;
 	return (new);
 }
