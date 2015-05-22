@@ -25,6 +25,7 @@ int			scene_to_struct(char const *path, t_env *env)
 	}
 	while ((ret = get_next_line(fd, &line)) > 0)
 	{
+		ft_putendl(line);
 		line_to_struct(line, env);
 		free(line);
 	}
