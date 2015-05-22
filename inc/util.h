@@ -6,7 +6,7 @@
 /*   By: npineau <npineau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/22 19:36:43 by npineau           #+#    #+#             */
-/*   Updated: 2015/05/22 19:37:08 by npineau          ###   ########.fr       */
+/*   Updated: 2015/05/22 19:56:08 by npineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,15 @@
 typedef struct	s_pipe
 {
 	t_mtx	scale;
-	t_mtx	rotateX;
-	t_mtx	rotateY;
-	t_mtx	rotateZ;
+	t_mtx	rotatex;
+	t_mtx	rotatey;
+	t_mtx	rotatez;
 	t_mtx	rotate;
 	t_mtx	translate;
 	t_mtx	i_scale;
-	t_mtx	i_rotateX;
-	t_mtx	i_rotateY;
-	t_mtx	i_rotateZ;
+	t_mtx	i_rotatex;
+	t_mtx	i_rotatey;
+	t_mtx	i_rotatez;
 	t_mtx	i_rotate;
 	t_mtx	i_translate;
 	t_mtx	t_pos;
@@ -52,7 +52,7 @@ t_mtx			vec_from_vtx(t_mtx const origin, t_mtx const destination);
 t_mtx			vec_cross(t_mtx const lh, t_mtx const rh);
 t_mtx			vec_normalize(t_mtx const vec);
 double			vec_magnitude(t_mtx const vec);
-t_mtx	vec_new(double const x, double const y, double const z);
+t_mtx			vec_new(double const x, double const y, double const z);
 t_mtx			vtx_new(double const x,
 		double const y,
 		double const z,

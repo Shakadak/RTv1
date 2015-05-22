@@ -6,7 +6,7 @@
 /*   By: npineau <npineau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/22 19:36:31 by npineau           #+#    #+#             */
-/*   Updated: 2015/05/22 19:36:34 by npineau          ###   ########.fr       */
+/*   Updated: 2015/05/22 19:55:26 by npineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ t_camera		new_camera(
 		t_mtx const pos,
 		t_mtx const direction,
 		t_pos const screen);
-t_light	new_light(t_mtx const coordinate, double const intensity);
+t_light			new_light(t_mtx const coordinate, double const intensity);
 t_ray			ray_new(t_camera const camera,
 		t_pos const pos);
 t_color			ray_cast(t_pos const pos,
