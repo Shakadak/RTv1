@@ -6,7 +6,7 @@
 /*   By: npineau <npineau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/06 16:42:15 by npineau           #+#    #+#             */
-/*   Updated: 2015/05/22 17:51:31 by npineau          ###   ########.fr       */
+/*   Updated: 2015/05/22 17:58:23 by npineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@
 # define MAX_OBJECTS 20
 # define MAX_CAMERAS 20
 
-# define WIDTH 640
-# define HEIGTH 480
-# define FOV 60
+# define WIDTH 1366
+# define HEIGTH 768
+# define FOV 90
 
 typedef struct		s_env
 {
