@@ -6,7 +6,7 @@
 /*   By: npineau <npineau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/22 19:31:19 by npineau           #+#    #+#             */
-/*   Updated: 2015/05/22 19:31:21 by npineau          ###   ########.fr       */
+/*   Updated: 2015/05/22 19:50:47 by npineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ t_ray	ray_new(t_camera const camera,
 	x *= tan(camera.fov / 2.0);
 	z = 1;
 	ray.dir = vec_new(x, y, z);
-	ray.pos = vtx_new(0, 0, 0 ,1);
+	ray.pos = vtx_new(0, 0, 0, 1);
 	ray = ray_transform(ray, camera.transform);
 	ray.dir = vec_normalize(ray.dir);
 	return (ray);

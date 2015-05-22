@@ -6,7 +6,7 @@
 /*   By: npineau <npineau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/22 19:31:57 by npineau           #+#    #+#             */
-/*   Updated: 2015/05/22 19:31:59 by npineau          ###   ########.fr       */
+/*   Updated: 2015/05/22 19:51:34 by npineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static int	obstructed(t_object const *olist, t_ray const ray)
 	return (0);
 }
 
-t_color	ray_shade(t_object obj,
+t_color		ray_shade(t_object obj,
 		t_ray const ray,
 		double const dist,
 		t_object const *olist,

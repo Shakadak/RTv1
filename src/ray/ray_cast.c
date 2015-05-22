@@ -6,14 +6,14 @@
 /*   By: npineau <npineau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/22 19:31:08 by npineau           #+#    #+#             */
-/*   Updated: 2015/05/22 19:31:17 by npineau          ###   ########.fr       */
+/*   Updated: 2015/05/22 19:49:30 by npineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <float.h>
 #include "rtv1.h"
 
-static void	get_nearest(t_object const * olist, t_ray const ray,
+static void	get_nearest(t_object const *olist, t_ray const ray,
 		t_object *nearest_object, double *nearest_distance)
 {
 	double	distance;
