@@ -23,7 +23,7 @@ static t_atom	get_fill(t_atom atom, char const *const *const src, int *i)
 	else if (!ft_strcmp(src[*i], "COLOR"))
 		atom.color = fill_color(src, i);
 	else if (!ft_strcmp(src[*i], "INTENSITY"))
-		atom.intensity = ft_atof(src[(*i)++]);
+		atom.intensity = ft_atof(src[++(*i)]);
 	else
 		ft_fatal("Error while parsing file.", 0);
 	return (atom);
