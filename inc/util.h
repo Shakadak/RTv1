@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   util.h                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: npineau <npineau@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2015/05/22 19:36:43 by npineau           #+#    #+#             */
+/*   Updated: 2015/05/22 19:37:08 by npineau          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef UTIL_H
 # define UTIL_H
 
@@ -27,9 +39,9 @@ typedef struct	s_pipe
 }				t_pipe;
 
 double			mtx_determinant(t_mtx const mtx);
-t_mtx			mtx_rotateX(double const angle);
-t_mtx			mtx_rotateY(double const angle);
-t_mtx			mtx_rotateZ(double const angle);
+t_mtx			mtx_rotatex(double const angle);
+t_mtx			mtx_rotatey(double const angle);
+t_mtx			mtx_rotatez(double const angle);
 t_mtx			mtx_scale(double const x, double const y, double const z);
 t_mtx			mtx_translate(t_mtx const vec);
 double			solve_quadratic(double const a, double const b, double const c);
