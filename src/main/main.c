@@ -6,7 +6,7 @@
 /*   By: npineau <npineau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/22 19:29:56 by npineau           #+#    #+#             */
-/*   Updated: 2015/05/22 19:29:59 by npineau          ###   ########.fr       */
+/*   Updated: 2015/05/22 19:59:30 by npineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ int	test(t_env *env)
 		x = 0;
 		while (x < env->img.dim.x)
 		{
-			rgb = ray_cast(new_pos(x, y, 0), env->cameras[0], env->objects, env->lights);
+			rgb = ray_cast(new_pos(x, y, 0), env->cameras[0],
+					env->objects, env->lights);
 			put_pixel_to_image(env->img, new_pixel(new_pos(x, y, 0), rgb));
 			++x;
 		}
