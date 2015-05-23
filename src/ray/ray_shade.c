@@ -6,7 +6,7 @@
 /*   By: npineau <npineau@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/22 19:31:57 by npineau           #+#    #+#             */
-/*   Updated: 2015/05/22 20:13:10 by npineau          ###   ########.fr       */
+/*   Updated: 2015/05/23 09:25:28 by npineau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,31 +37,30 @@ static t_color	update_color(t_color rgb, double factor)
 t_color			ray_shade(t_object obj,
 		t_ray const ray,
 		double const dist,
-		t_object const *olist,
-		t_light const *lights)
+		t_env const *env)
 {
 	t_ray		normal;
 	t_ray		l_ray;
 	double		dot;
 	double		expo;
+	int			i;
 
+	i = 0;
 	expo = 0.85;
 	normal = ray_normal(obj, ray, dist);
-	while (lights->defined)
+	while (env->lights[i].defined)
 	{
-		l_ray.dir = mtx_sub(lights->pos, normal.pos);
+		l_ray.dir = mtx_sub(env->lights[i].pos, normal.pos);
 		dot = vec_dot(normal.dir, vec_normalize(l_ray.dir));
 		if (!(0.0 < dot + EPSILON && dot <= 1.0 + EPSILON))
 		{
-			++lights;
+			++i;
 			continue;
 		}
 		l_ray.pos = normal.pos;
-		if (!obstructed(olist, l_ray))
-		{
-			expo *= (1 - dot * lights->intensity);
-		}
-		++lights;
+		if (!obstructed(env->objects, l_ray))
+			expo *= (1 - dot * env->lights[i].intensity);
+		++i;
 	}
 	return (update_color(obj.rgb, 1 - expo));
 }
